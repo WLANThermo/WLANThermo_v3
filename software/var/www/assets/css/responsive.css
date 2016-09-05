@@ -13,7 +13,7 @@
 @media (max-width:991px) {
 
 	body {
-		background-color: #dddddd;
+		background-color: #d6e1e3;
 	}
 
 	.kanal-border-orange {
@@ -94,7 +94,7 @@
 	}
 
 	.no-bk {
-		background-color: #1b1f23;
+		background-color: #2f2c2c;
 		padding: 10px;
 		height: 46px;
 	}
@@ -104,7 +104,7 @@
 	}
 
 	.bk {
-		background-color: #1b1f23!important;
+		background-color: #2f2c2c!important;
 	}
 
 	.bk-tit {
