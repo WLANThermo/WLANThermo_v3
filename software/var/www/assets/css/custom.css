@@ -1,0 +1,448 @@
+body {
+	background-color: #dddddd;
+}
+.thermo_top {
+	height: 111px;
+    background: #2f2c2c;
+}
+
+.navbar-brand img{
+	max-width: 80%;
+}
+
+.navbar {
+	min-height: 30px!important;
+	height: 32px;
+}
+
+.navbar .nav li a {
+	padding-top: 7px!important;
+    padding-bottom: 2px!important;
+}
+
+nav {
+	border-radius: 0!important;
+	background: #cccccc!important;
+	border: 0!important;
+}
+
+.h1 {
+	color: #fff;
+	position: relative;
+	top: 34px;
+	right: 97px
+}
+
+.h1 h1{ 
+	font-size: 26px;
+}
+
+.info_top {
+	color: #fff;
+	font-size: 15px;
+	margin-top: 12px;
+    font-size: 14px;
+}
+
+.info_top img {
+	width: 20px;
+}
+
+.info_top .username, .info_top .lang, .info_top .short_info {
+	background-repeat: no-repeat;
+    background-position: right;
+    margin-right: 8px;
+    width: 150px;
+    float: right;
+    text-align: right;
+}
+
+
+.navbar-default .navbar-nav {
+	max-width: 853px;
+	margin: 0 auto;
+	float: none;
+}
+
+.navbar-default .navbar-nav>li>a {
+	font-size: 18px;
+	color: #444;
+	border-bottom:  3px solid #cccccc;
+}
+
+.navbar-default .navbar-nav>li>a:hover, 
+.navbar-default .navbar-nav>.active>a:hover {
+	border-bottom:  3px solid #e44532;
+	background-color: #cccccc;
+	background-image: none;
+}
+
+.navbar-default .navbar-nav>.active>a {
+	background-image: none;
+	box-shadow: none;
+    background-color: #cccccc;
+}
+
+.kanal-margin {
+	padding: 0;
+	float: left;
+}
+
+.kanal-border0 {
+	border-left: 11px solid #00c1ff;
+	width: 100%;
+} 
+
+.kanal-border1 {
+	border-left: 11px solid #88eb8d;
+    width: 100%;
+}
+
+.kanal-border2 {
+	border-left: 11px solid #de79e0;
+    width: 100%;
+} 
+
+.kanal-border3 {
+	border-left: 11px solid #6a8b18;
+    width: 100%;	
+}
+
+.kanal-border-orange {
+	border-left: 11px solid #ef7f00;
+	width: 100%;
+}
+
+.kanal-0-small {
+	padding: 8px;
+}
+
+.kanal-0-small h2, .kanal-0-small p {
+	color: #ffffff;
+	margin: 0;
+	font-weight: bold;
+	display: inline;
+}
+
+.kanal-0-small h2 {
+	float: left;
+    line-height: 22px;
+    font-size: 14px;
+}
+
+.kanale .row, .konfiguration .row, .logfile .row, .ordner .row, .einstellung .row {
+	margin-right: -8px;
+    margin-left: -11px;
+}
+
+.kanale, .konfiguration, .logfile, .ordner, .einstellung {
+	padding-left: 8px;
+    padding-right: 8px;
+}
+
+.kanale h3, .konfiguration h3, .logfile h3, .ordner h3, .einstellung h3 {
+	margin: 0;
+	font-size: 18px;
+	float: right;
+    padding-left: 0;
+}
+
+.kanal-0-small p {
+	float: right;
+	font-size: 15px;
+}
+
+.kanal-hide-tabel {
+		display: none;
+	}
+
+.kanal-0-small .kanal0_tit {
+	font-weight: bold;
+	color: #ffffff;
+	background-color: #464040;
+	float: left;
+    width: 100%;
+    padding: 4px 15px 4px 15px;
+}
+
+.kanal-info p {
+	display: inline;
+	float: left;
+}
+
+.kanal-0-small .kanal-info{
+	background-color: #2f2c2c;
+	float: left;
+    width: 100%;
+}
+
+.kanal-0-small .kanal-info .temp {
+	float: left;
+	padding: 10px 15px 10px 15px;
+}
+
+.kanal-0-small .kanal-info .temp1 {
+	font-size: 28px;
+	width: 100px;
+    text-align: right;
+}
+
+.neues_einstellung {
+	float: left;
+	width: 100%;
+}
+
+.kanal-0-small .kanal-info .temp2,
+.kanal-0-small .kanal-info .temp3 ,
+.kanal-0-small .kanal-info .last_temp {
+	line-height: 38px;
+}
+
+.kanal-0-small .kanal-info .temp2 {
+	margin: 0 9px 0 25px;
+}
+
+.kanal-0-small .kanal-info .temp2,
+.kanal-0-small .kanal-info .temp3 {
+	margin-top: 1px;
+}
+
+.temp3L {
+	float: right!important;
+}
+
+.kanal-info .col-sm-8.temp {
+	width: 61.666667%;
+}
+
+.kanal-0-small .kanal-info .temp2 img, .kanal-0-small .kanal-info .temp3 img, .kanal-0-small .kanal-info .last_temp img {
+	margin-right: 5px;
+	width: 25px;
+    margin-top: -5px;
+}
+
+.kanal-0-small .kanal-info .last_temp {
+	width: 73px;
+	height: 55px;
+    float: right;
+    padding: 18px 15px 0 0;
+}
+
+.kanal-0-small .kanal-info .last_temp div {
+    font-size: 12px;
+    color: #fff;
+    line-height: 15px;
+    text-align: right;
+}
+
+.kanal-0-small .kanal-info .last_temp img {
+	position: relative;
+	top: -33px;
+}
+
+.kanale .col-md-1, .konfiguration .col-md-1, .logfile .col-md-1, .ordner .col-md-1, .einstellung .col-md-1{
+	height: 102px;
+}
+
+.konfiguration {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.form-konfig {
+	padding: 20px 25px 5px 25px;
+}
+
+.form-konfig label select {
+	color: #222222;
+}
+
+.form-konfig label {
+	width: 100%;
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: normal;
+}
+
+.mobile_devider {
+	display: none;
+}
+
+.form-konfig label .form_name {
+	float: left;
+	position: relative;
+	left: 68px;
+}
+
+.form-konfig label .form_name input {
+	width: 269px;
+}
+
+.form-konfig label .form_sensor select{
+	padding-right: 1px;
+}
+
+.form-konfig label .form_sensor, .form-konfig label .form_color {
+	float: right;
+}
+
+.form-konfig label .form_tempmax {
+	float: left;
+	position: relative;
+	left: 1px;
+}
+
+.form-konfig label .form_tempmax span {
+	color: #af1010;
+}
+
+.form-konfig label .form_tempmin span {
+	color: #0d8cc1;
+}
+
+.form-konfig label .form_tempmin {
+	float: left;
+	position: relative;
+	left: 22px;
+}
+
+
+.form-konfig label .form_tempmax input, 
+.form-konfig label .form_mess input,
+.form-konfig label .form_tempmin input{
+	width: 70px;
+}
+
+.form-konfig label .form_alarm {
+	float: right;
+}
+
+.form-konfig label .form_alarm input{
+	margin-right: 47px;
+    margin-top: 0px;
+    width: 18px;
+}
+
+.form-konfig .form_label1 {
+	margin-bottom: 0px;
+}
+
+.form-konfig input {
+	height: 24px;
+}
+
+.form-konfig .form_alarm p {
+	font-weight: normal;
+	margin-right: 3px;
+}
+
+.logfile button{
+	background: #2f2c2c;
+    border: none;
+    color: #fff;
+    outline:none;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.logfile .kanal-info {
+	padding: 25px;
+	text-align: center;
+}
+
+.ordner .kanal-info {
+	color: #ffffff;
+}
+
+.ordner .kanal-info table {
+	width: 100%;
+}
+
+.ordner .kanal-info table td {
+	padding: 10px;
+}
+
+.ordner .kanal-info table tr h2 {
+	width: 100%;
+}
+
+.ordner .kanal-info table tr, .ordner .kanal-info table th {
+	text-align: center;
+}
+
+.ordner .kanal-info table th {
+	border-right: 2px solid #2f2c2c;
+}
+
+.ordner .kanal-info table td {
+	border-right: 2px solid #2f2c2c;
+}
+
+.ordner .kanal-info table .background-row {
+    background-color:#262323;
+}
+
+.ordner {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.ordner .kanal-info .submit_loschen {
+	float: right;
+	padding:20px 52px 20px 0;
+}
+
+.ordner .kanal-info .submit_loschen p {
+	line-height: 31px;
+    margin-right: 14px;
+}    
+
+.einstellung {
+	margin-bottom: 50px;
+}
+
+.einstellung p {
+	font-weight: normal;
+}
+
+.einstellung input[type="checkbox"] {
+	width: 18px!important;
+	margin-top: 0;
+}
+
+.einstellung .hard-v1 {
+	margin-right: 8px;
+}
+
+.einstellung .hard-v {
+	margin-right: 20px;
+}
+.einstellung .einstellung_span_1 {
+	padding-left: 55px;
+	float: left;
+	width: 100%;
+}
+
+.einstellung .einstellung_span_2 {
+	padding-left: 34px;
+	float: left;
+	width: 100%;
+}
+
+.einstellung .einstellung_span_3 {
+	padding-left: 72px;
+}
+
+.einstellung input, .einstellung .hard-v-tit {
+	margin-right: 3px;
+}
+
+.einstellung span {
+	width: 100%;
+	float: left;
+}
+
+.einstellung .beeper {
+	float: right
+}
+
