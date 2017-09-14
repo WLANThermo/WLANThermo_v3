@@ -1,424 +1,1595 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-  <head>
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Thermo</title>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="assets/css/custom.css" rel="stylesheet">
-    <link href="assets/css/responsive.css" rel="stylesheet">
-  </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-title" content="WlanThermo">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<link rel="apple-touch-icon-precomposed" href="https://raw.githubusercontent.com/WLANThermo-nano/WLANThermo_nano_Logos/master/apple-touch-icon-180x180-precomposed.png" >
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+	<title>WLANThermo</title>
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+</head>
+<body>
 
-  <body>
-    <div class="container cont_header">
-	    <div class="thermo_top bk">
-	    	<div class="col-md-4">
-	    		<a class="navbar-brand" href="#"><img src="assets/images/logo.png" alt="" /></a>
-	    	</div>
-	    	<div class="col-md-6 h1">
-	    		<h1>...die Referenz zum Grillen</h1>
-	    	</div>
-	    	<div class="col-md-2 info_top">
-	    		<div class="username">
-	    			Username <img src="assets/images/user_img.png" alt=""/>
-	    		</div>
-	    		<div class="lang">
-	    			Sprache <img src="assets/images/lang.png" alt=""/>
-	    		</div>
-	    		<div class="short_info">
-	    			93% <img src="assets/images/signal.png" alt=""/>
-	    		</div>
-	    	</div>
-	    </div>
-
-		<nav class="navbar navbar-default">
-		  	<div class="container-fluid">
-		    <!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		    </div>
-
-		    <!-- Collect the nav links, forms, and other content for toggling -->
-		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		      <ul class="nav navbar-nav">
-		        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-		        <li><a href="#">Log Datei</a></li>
-		        <li><a href="#">Neues Logfile</a></li>
-		        <li><a href="#">Einstellungen</a></li>
-		        <li><a href="#">Wifi</a></li>
-		        <li><a href="#">Info</a></li>
-		        <li><a href="#">Neustarten</a></li>
-		        <li><a href="#">Herunterfahren</a></li>
-		      </ul>
-		    </div><!-- /.navbar-collapse -->
-		  </div><!-- /.container-fluid -->
-		</nav>
+<div id="layout">
+	<div class="headmenu">
+		<!-- Menu toggle -->
+		<a href="#menu" id="menuLink" class="menu-link">
+			<!-- Hamburger icon -->
+			<span></span>
+		</a>
+		<div id="thermoname">N.C.</div>
+		<div class="wifi" onclick="setshowBatteryWlanIcon();">N.C.</div>
+		<div class="notification" style="display:none" onclick="update();"><span class="icon-notification"> </span></div>
 	</div>
-	<div class="container">
-		<div class="content">
-			<div class="row">
-				<div class="kanale">
-					<h3 class="col-md-11">Kanäle</h3>
-					<div class="row">
-						<div class="col-md-1"></div>
-						<div class="col-md-5 kanal-0-small">
-							<div class="kanal-margin kanal-border0">
-								<div class="kanal0_tit bk-tit"><h2>Kanal 0</h2><p>#0</p></div>
-								<div class="kanal-info bk">
-									<div class="temp">
-										<p class="temp1">22.8°C</p>
-										<p class="temp2"><img src="assets/images/flame.jpg" alt=""/>200°C</p>
-										<p class="temp3"><img src="assets/images/blue-flame.jpg" alt=""/>-20°C</p>
-									</div>
-									<div class="last_temp">
-										<div>&nbsp;50 %</div>									
-										<div>30°C <span class="mobile_devider"> / </span> </div>
-										<img src="assets/images/wind.jpg" alt=""/>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-5 kanal-0-small kanal-hide">
-							<div class="kanal-margin kanal-border1">
-								<div class="kanal0_tit"><h2>Kanal 1</h2><p>#1</p></div>
-								<div class="kanal-info">
-									<div class="temp">
-										<p class="temp1">56.9°C</p>
-										<p class="temp2"><img src="assets/images/flame.jpg" alt=""/>200°C</p>
-										<p class="temp3"><img src="assets/images/blue-flame.jpg" alt=""/>-10°C</p>
-									</div>
-									<div class="last_temp">
-										<div>50 %</div>
-										<div>30°C</div>
-										<img src="assets/images/wind.jpg" alt=""/>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-						
-						<div class="row kanal-hide">
-							<div class="col-md-1"></div>
-							<div class="col-md-5 kanal-0-small">
-								<div class="kanal-margin kanal-border2">
-									<div class="kanal0_tit"><h2>Kanal 2</h2><p>#2</p></div>
-									<div class="kanal-info">
-										<div class="temp">
-											<p class="temp1">201.8°C</p>
-											<p class="temp2"><img src="assets/images/flame.jpg" alt=""/>200°C</p>
-											<p class="temp3"><img src="assets/images/blue-flame.jpg" alt=""/>-20°C</p>
-										</div>
-										<div class="last_temp">
-											<div>50 %</div>
-											<div>30°C</div>
-											<img src="assets/images/wind.jpg" alt=""/>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-5 kanal-0-small">
-								<div class="kanal-margin kanal-border3">
-									<div class="kanal0_tit"><h2>Kanal 3</h2><p>#3</p></div>
-									<div class="kanal-info">
-										<div class="temp">
-											<p class="temp1">112.2°C</p>
-											<p class="temp2"><img src="assets/images/flame.jpg" alt=""/>200°C</p>
-											<p class="temp3"><img src="assets/images/blue-flame.jpg" alt=""/>-20°C</p>
-										</div>
-										<div class="last_temp">
-											<div>50 %</div>
-											<div>30°C</div>
-											<img src="assets/images/wind.jpg" alt=""/>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row kanal-hide">
-							<div class="col-md-1"></div>
-							<div class="col-md-10 kanal-0-small">
-							<div class="kanal-margin kanal-border0">
-								<div class="kanal0_tit"><h2>Kanal 0</h2><p>#0</p></div>
-								<div class="kanal-info">
-									<div class="col-sm-8 temp">
-										<p class="temp1">22.8°C</p>
-										<p class="temp2 temp3L"><img src="assets/images/flame.jpg" alt=""/>200°C</p>
-										<p class="temp3 temp3L"><img src="assets/images/blue-flame.jpg" alt=""/>-20°C</p>
-									</div>
-									<div class="last_temp">
-										<div>&nbsp;50 %</div>									
-										<div>30°C <span class="mobile_devider"> / </span> </div>
-										<img src="assets/images/wind.jpg" alt=""/>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="konfiguration">
-					<h3 class="col-md-11">Konfiguration</h3>
-					<div class="row">
-							<div class="col-md-1"></div>
-							<div class="col-md-10 kanal-0-small">
-							<div class="kanal-margin kanal-border0">
-								<div class="kanal0_tit bk-tit"><h2>Kanal 0</h2><p>#0</p></div>
-								<div class="kanal-info bk">
-									<form class="form-konfig">
-										<label class="form_label1">
-											<span class="form_name">
-												Name: 
-												<input type="text" name="name">
-											</span>
-											<span class="form_sensor">
-												Fühler :
-											    <select>
-													<option value="ET-73">ET-73</option>
-													<option value="ET-72">ET-72</option>
-													<option value="ET-71">ET-71</option>
-													<option value="ET-70">ET-70</option>
-												</select>
-											</span>
-										</label>
-										<label>
-											<span class="form_mess">
-												Messwiderstand: 
-												<input type="text" name="name">
-											</span>
-											<span class="form_color">
-												Plotfarbe:
-											    <select>
-													<option value="blue">blue</option>
-													<option value="yellow">yellow</option>
-													<option value="red">red</option>
-													<option value="green">green</option>
-												</select>
-											</span>
-										</label>
-										<label>
-											<span class="form_tempmax">
-												Temperatur 
-												<span>max:</span> 
-												<input type="text" name="name">
-											</span>
-											<span class="form_tempmin">
-												Temperatur 
-												<span>min:</span> 
-												<input type="text" name="name">
-											</span>
-											<div class="form_alarm">
-												<p>Websound-Alarm:</p> <input type="checkbox" name="" value=""> 
-											</div>
-										</label>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="logfile">
-					<h3 class="col-md-11">Neues Logfile erstellen</h3>
-					<div class="row">
-						<div class="col-md-1"></div>
-						<div class="col-md-5 kanal-0-small">
-							<div class="kanal-margin kanal-border-orange">
-								<div class="kanal0_tit bk-tit"><div class="kanal-hide">Möchten Sie ein neues Logfile erstellen?</div><div class="kanal-hide1">Neues Logfile erstellen</div></div>
-								<div class="kanal-info bk">
-									<div class="logfile-erstellen">
-										<button class="bk" type="button">Ja  <img src="assets/images/yes.jpg" alt=""/></button>
-										<button class="bk" type="button">zurück <img src="assets/images/back.jpg" alt=""/></button>
-									</div>
-								</div>
-							</div>
-						</div>	
-					</div>
-				</div>
-				<div class="ordner">
-					<h3 class="col-md-11">Thermolog Ordner</h3>
-					<div class="row">
-						<div class="col-md-1"></div>
-						<div class="col-md-10 kanal-0-small">
-							<div class="kanal-margin kanal-border-orange">
-								<div class="kanal-info bk">
-									<table class="kanal-hide">
-										<tr>
-											<th><div class="kanal0_tit"><h2>Dateiname</h2></div></th>
-										    <th><div class="kanal0_tit"><h2>D/L</h2></div></th>
-										    <th><div class="kanal0_tit"><h2>Plot</h2></div></th>
-										    <th><div class="kanal0_tit"><h2>Dateigröße</h2></div></th>
-										    <th><div class="kanal0_tit"><h2>letzte Änderung</h2></div></th>
-										    <th><div class="kanal0_tit"><h2>Löschen</h2></div></th>
-										</tr>
-										<tr>
-											<td>20160423_170349_TEMPLOG</td>
-											<td><img src="assets/images/dl.jpg" alt=""/></td>
-											<td><img src="assets/images/plot2.png" alt=""/></td>
-											<td>114KB</td>
-											<td>27.04.2016 15:06:52</td>
-											<td><input type="checkbox" name="" value=""></td>
-
-										</tr>
-										<tr class="background-row">
-											<td>20160408_094207_TEMPLOG</td>
-											<td><img src="assets/images/dl.jpg" alt=""/></td>
-											<td><img src="assets/images/plot.png" alt=""/></td>
-											<td>969KB</td>
-											<td>23.04.2016 17:03:45</td>
-											<td><input type="checkbox" name="" value=""></td>
-										</tr>
-										<tr>
-											<td>20160404_225113_TEMPLOG</td>
-											<td><img src="assets/images/dl.jpg" alt=""/></td>
-											<td><img src="assets/images/plot.png" alt=""/></td>
-											<td>1.25MB</td>
-											<td>08.04.2016 09:42:02</td>
-											<td><input type="checkbox" name="" value=""></td>
-										</tr>
-										<tr class="background-row">
-											<td>20160403_001330_TEMPLOG</td>
-											<td><img src="assets/images/dl.jpg" alt=""/></td>
-											<td><img src="assets/images/plot2.png" alt=""/></td>
-											<td>391KB</td>
-											<td>04.04.2016 22:51:06</td>
-											<td><input type="checkbox" name="" value=""></td>
-										</tr>
-									</table>
-									<label class="submit_loschen kanal-hide"><p>LÖSCHEN</p><input type="image" name="submit" src="assets/images/lochen.jpg" alt="Submit" /></label>
-
-									<div class="kanal-hide-tabel">
-										<div>
-											<h2 class="kanal0_tit kanal01_tit bk-tit">Dateiname 1</h2>
-											<span class="kanal001_tit">20160423_170349_TEMPLOG</span>
-										</div>
-										<div>
-										   	<h2 class="kanal01_tit">D/L</h2>
-										   	<h2 class="kanal01_tit">Plot</h2>
-										    <h2 class="kanal01_tit">Dateigröße</h2>
-										</div>
-										<div>
-											<span class="kanal01_tit no-bk"><img src="assets/images/dl.jpg" alt=""/></span>
-											<span class="kanal01_tit no-bk"><img src="assets/images/plot2.png" alt=""/></span>
-											<span class="kanal01_tit no-bk">114KB</span>
-										</div>
-										<div>
-											<h2 class="kanal01_tit anderung01_tit">letzte Änderung</h2>
-										    <h2 class="kanal01_tit">Löschen</h2>
-										</div>
-										<div>
-											<span class="kanal01_tit no-bk anderung01_tit">27.04.2016 15:06:52</span>
-											<span class="kanal01_tit no-bk"><input type="checkbox" name="" value=""></span>
-										</div>
-										<!--Dateiname 2-->
-										<div>
-											<h2 class="kanal0_tit kanal01_tit bk-tit">Dateiname 2</h2>
-											<span class="kanal001_tit">20160408_094207_TEMPLOG</span>
-										</div>
-										<div>
-										   	<h2 class="kanal01_tit">D/L</h2>
-										   	<h2 class="kanal01_tit">Plot</h2>
-										    <h2 class="kanal01_tit">Dateigröße</h2>
-										</div>
-										<div>
-											<span class="kanal01_tit no-bk"><img src="assets/images/dl.jpg" alt=""/></span>
-											<span class="kanal01_tit no-bk"><img src="assets/images/plot2.png" alt=""/></span>
-											<span class="kanal01_tit no-bk">969KB</span>
-										</div>
-										<div>
-											<h2 class="kanal01_tit anderung01_tit">letzte Änderung</h2>
-										    <h2 class="kanal01_tit">Löschen</h2>
-										</div>
-										<div>
-											<span class="kanal01_tit no-bk anderung01_tit">23.04.2016 17:03:45</span>
-											<span class="kanal01_tit no-bk"><input type="checkbox" name="" value=""></span>
-										</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="einstellung kanal-hide">
-					<h3 class="col-md-11">Allgemeine Einstellungen</h3>
-					<div class="row">
-						<div class="col-md-1"></div>
-						<div class="col-md-10 kanal-0-small">
-							<div class="kanal-margin kanal-border-orange">
-								<div class="kanal0_tit"><h2>Allgemeine Einstellungen</h2></div>
-								<div class="kanal-info">
-									<div class="form-konfig">
-											<div class="einstellung_span_1">
-												<p class="hard-v-tit">Hardware Version:</p> 
-												<p><input type="checkbox" name="" value=""></p><p class="hard-v">v1</p>
-												<p><input type="checkbox" name="" value=""></p><p class="hard-v">v2</p>
-												<p><input type="checkbox" name="" value=""></p><p class="hard-v">v3</p>
-												<div class="beeper"><p class="hard-v-tit">Beeper:</p><p><input type="checkbox" name="" value=""></p></div>
-											</div>
-											<div>
-												<p class="hard-v-tit">Neues Logfile bei Neustart:</p>
-												<p><input type="checkbox" name="" value=""></p>
-												<div class="beeper"><p class="hard-v-tit">LCD-Anzeige:</p><p><input type="checkbox" name="" value=""></p></div>
-											</div>
-											<div class="einstellung_span_2">
-												<p class="hard-v-tit">Nach Update suchen:</p>
-												<p><input type="checkbox" name="" value=""></p>
-												<div class="beeper"><p class="hard-v-tit">CPU-Anuslastung anzeigen:</p><p><input type="checkbox" name="" value=""></p></div>
-											</div>
-											<div class="einstellung_span_3">
-												<p class="hard-v-tit">Kanal anzeigen:</p>
-												<p><input type="checkbox" name="" value=""></p><p class="hard-v1">ch0</p><p><input type="checkbox" name="" value=""></p><p class="hard-v1">ch1</p><p><input type="checkbox" name="" value=""></p><p class="hard-v1">ch2</p><p><input type="checkbox" name="" value=""></p><p class="hard-v1">ch3</p><p><input type="checkbox" name="" value=""></p><p class="hard-v1">ch4</p><p><input type="checkbox" name="" value=""></p><p class="hard-v1">ch5</p><p><input type="checkbox" name="" value=""></p><p class="hard-v1">ch6</p><p><input type="checkbox" name="" value=""></p><p class="hard-v1">ch7</p>
-												
-											</div>
-									</div>
-								</div>
-							</div>
-						</div>	
-					</div>
-				</div>
-
-				<div class="einstellung-mobile kanal-hide1">
-					<h3 class="col-md-11">Allgemeine Einstellungen</h3>
-					<div class="row">
-						<div class="col-md-1"></div>
-						<div class="col-md-10 kanal-0-small">
-							<div class="kanal-margin kanal-border-orange">
-								<div class="kanal0_tit bk-tit"><h2>Allgemeine Einstellungen</h2></div>
-								<div class="kanal-info">
-									<div class="form-konfig form-konfig2">
-											<div class="einstellung_span_1">
-												<p class="hard-v-tit">Hardware Version:</p> 
-												<p><input type="checkbox" name="" value=""></p><p class="hard-v">v1</p>
-												<p><input type="checkbox" name="" value=""></p><p class="hard-v">v2</p>
-												<p><input type="checkbox" name="" value=""></p><p class="hard-v">v3</p>
-											</div>
-											<div>
-												<p class="hard-v-tit">Neues Logfile bei Neustart:</p>
-												<p><input type="checkbox" name="" value=""></p>
-											</div>
-											<div class="einstellung_span_2">
-												<p class="hard-v-tit">Nach Update suchen:</p>
-												<p><input type="checkbox" name="" value=""></p>
-											</div>
-											<div class="einstellung_span_3">
-												<p class="hard-v-tit">Kanal anzeigen:</p>
-												<p><input type="checkbox" name="" value=""></p><p class="hard-v1">ch0</p><p><input type="checkbox" name="" value=""></p><p class="hard-v1">ch1</p><p><input type="checkbox" name="" value=""></p><p class="hard-v1">ch2</p><p><input type="checkbox" name="" value=""></p><p class="hard-v1">ch3</p><p style="width: 100%;"></p><p><input type="checkbox" name="" value=""></p><p class="hard-v1">ch4</p><p><input type="checkbox" name="" value=""></p><p class="hard-v1">ch5</p><p><input type="checkbox" name="" value=""></p><p class="hard-v1">ch6</p><p><input type="checkbox" name="" value=""></p><p class="hard-v1">ch7</p>
-											</div>
-											<div class="beeper"><p class="hard-v-tit">CPU-Anuslastung anzeigen:</p><p><input type="checkbox" name="" value=""></p></div>
-									</div>
-								</div>
-							</div>
-						</div>	
-					</div>
-				</div>
-		</div>
-	</div>
+	<div class="clear"></div>
+    <div id="menu">
+        <div class="pure-menu custom-restricted-width">
+			<a class="pure-menu-heading" href="javascript:showIndex()">
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAAA+CAMAAADOHANyAAABy1BMVEVHcEz////LtrjCo6T+/v67
+						srLmGSX18/Pk5OT////////////19fX9/f3+/v76+vrs7Oz7+/vkMDr+/v77+/vkCxj///+8vLzc
+						3Nz8/Pzx8fH8/Pz9/f3v7+/+/v77+/vp6en6+vrk5OTt7e3////7+/vx8fH39/f7+/v8/Pzv7+/0
+						9PTkDxzb29vz8fH7+/v+/v74+Pjy8vL7+/v6+vr9/f3a2tr////+/v76+fn8/Pz5+fnkCRb4+Pj8
+						/Pz19fX8/Pz9/f3kCxjlEh75+fnu7u7kChb7+/vkDRr5+fn09PT8/Pz29vba2tr6+vr8/Pzs7Oz8
+						/Pz39/f9/f37+/vkDBnkCRblER3v7+/v7+/+/v7kBxT6+vrpOELz8/P8/PzlDxz6+vroLDfq6ur5
+						+fn39/f29vb8/Pz////kEyDrRlDnIy/lDRr////////kDBj////kBxToMz3z8/PlEyDlGCPkChf3
+						9/f////lEh/lFSH4+PjlFSHnIS3kDRrkCxjkChflEBz////lDhrkDBjlHyvkCxj39/flFyPu7u7m
+						GyfkDRnlEyDlFSH////oc3r////pXGTnKTTywcTzxMfrT1jsgIb////kBhPe/hkIAAAAl3RSTlMA
+						zQMC/QE8SBT+fPpg5PhSDB/L3XPKkBsH3i6W7WqBohqTKDIUvhxkr8kOTXQJN7P0cDSqiPEEjraP
+						23nsa+OqzOnglJ0k8qWofUS7UAuFxBHPV9a4tfhbKidL/vkLO9R+ixYXgklB2Z6EBxyuSFXGKfsR
+						PW5C2j50Y0xbVyac1OaMXKK7NszGRzwsv1NQyl7LiDN1jxiQLUfRqQAACeRJREFUeF7tmGlXG0cW
+						hu9IaiMs1IiEZATSBBQCSGBAGKQZNgWZfbMABIYQA9gYAraTeMGOl3gZL4m3yWS2l587fau6qlsg
+						nUM44VueD5xbatT16tbduunUub1/7sm7e/2rBweroxe+G994f51KUh25qUyjaZoUVyOREBF9FjlP
+						RzD6PORiIEwuvJHIVVIYr3Zf3zo4zIUXjy9TUbqR1/bWuqHMZvSSxceopCNsF374jzGDHNLl+Jwk
+						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" 
+				alt="WLANThermo" height="58" width="130"> 
+			</a>
+            <ul class="pure-menu-list">
+                <li id="menuHome" class="pure-menu-item"><a href="javascript:showIndex()" class="pure-menu-link">Home</a></li>
+				<li id="menuWlan" class="pure-menu-item"><a href="javascript:showWLAN()" class="pure-menu-link">WLAN</a></li>
+				<li id="menuSystem" class="pure-menu-item"><a href="javascript:showSystem()" class="pure-menu-link">System</a></li>
+				<li id="menuPitmaster" class="pure-menu-item"><a href="javascript:showPitmaster()" class="pure-menu-link">Pitmaster</a></li>
+				<li id="menuThingspeak" class="pure-menu-item"><a href="javascript:showThingspeak()" class="pure-menu-link">IoT</a></li>
+				<li id="menuNotification" class="pure-menu-item"><a href="javascript:showPushNotification()" class="pure-menu-link">Push Notification</a></li>
+                <li id="menuAbout" class="pure-menu-item"><a href="javascript:showAbout()" class="pure-menu-link">Über</a></li>
+            </ul>
+			<!-- style="display:none" -->
+        </div>
     </div>
+
+    <div id="main">
+        <div class="header">
+            <h1>WLANThermo - Nano</h1>
+        </div>
+		<!-- ################################################### -->
+        <div id="index" class="content" class="hidden" style="display:none">
+            <div class="pure-g">
+                <div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index" onclick="showSetChannel('0')">
+					<div class="1-box channel">
+						<div class="chtitle"></div>
+						<div class="chnumber"></div>
+							<div class="tempadjust">
+								<div class="tempmax"></div>
+								<div class="tempmin"></div>
+							</div>
+							<div class="temp"></div>
+							<div class="clear"></div>
+					</div>
+                </div>
+                <div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index" onclick="showSetChannel('1')">
+					<div class="1-box channel">
+						<div class="chtitle"></div>
+						<div class="chnumber"></div>
+							<div class="tempadjust">
+								<div class="tempmax"></div>
+								<div class="tempmin"></div>
+							</div>
+							<div class="temp"></div>
+							<div class="clear"></div>
+					</div>
+                </div>
+                <div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index" onclick="showSetChannel('2')">
+					<div class="1-box channel">
+						<div class="chtitle"></div>
+						<div class="chnumber"></div>
+							<div class="tempadjust">
+								<div class="tempmax"></div>
+								<div class="tempmin"></div>
+							</div>
+							<div class="temp"></div>
+							<div class="clear"></div>
+					</div>
+                </div>
+                <div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index" onclick="showSetChannel('3')">
+					<div class="1-box channel">
+						<div class="chtitle"></div>
+						<div class="chnumber"></div>
+							<div class="tempadjust">
+								<div class="tempmax"></div>
+								<div class="tempmin"></div>
+							</div>
+							<div class="temp"></div>
+							<div class="clear"></div>
+					</div>
+                </div>
+                <div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index" onclick="showSetChannel('4')">
+					<div class="1-box channel">
+						<div class="chtitle"></div>
+						<div class="chnumber"></div>
+							<div class="tempadjust">
+								<div class="tempmax"></div>
+								<div class="tempmin"></div>
+							</div>
+							<div class="temp"></div>
+							<div class="clear"></div>
+					</div>
+                </div>
+                <div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index" onclick="showSetChannel('5')">
+					<div class="1-box channel">
+						<div class="chtitle"></div>
+						<div class="chnumber"></div>
+							<div class="tempadjust">
+								<div class="tempmax"></div>
+								<div class="tempmin"></div>
+							</div>
+							<div class="temp"></div>
+							<div class="clear"></div>
+					</div>
+                </div>
+                <div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index" onclick="showSetChannel('6')">
+					<div class="1-box channel">
+						<div class="chtitle"></div>
+						<div class="chnumber"></div>
+							<div class="tempadjust">
+								<div class="tempmax"></div>
+								<div class="tempmin"></div>
+							</div>
+							<div class="temp"></div>
+							<div class="clear"></div>
+					</div>
+                </div>
+                <div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index" onclick="showSetChannel('7')">
+					<div class="1-box channel">
+						<div class="chtitle"></div>
+						<div class="chnumber"></div>
+							<div class="tempadjust">
+								<div class="tempmax"></div>
+								<div class="tempmin"></div>
+							</div>
+							<div class="temp"></div>
+							<div class="clear"></div>
+					</div>
+                </div>
+            </div>
+        </div>
+		<!-- ################################################### -->
+		<div id="wlan_config" class="content" style="display:none">
+			<table class="table_nav" cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr>
+				  <td><span onclick="showIndex()"><span class="icon-arrow_left"></span>Zurück</span></td>
+				  <td></td>
+				</tr>
+			</table>
+			<h3 class="headtitle">WLAN Einstellungen</h3>
+			<div class="pure-g">
+				<div class="pure-u-1-1 pure-u-lg-1-1">
+					<div class="1-box wlan_conf">	
+						<div class="checkbox">
+						  <label>
+							<input id="wlan_active" onclick="wlan_active();" type="checkbox" checked/><i class="helper"></i>WLAN aktivieren
+						  </label>
+						</div>
+						<hr id="hr_wifi" style="display:none"/>
+						<table id="networkconnect" class="wlantable" width="100%">
+							<!--Netzwerkliste -->
+						</table> 
+						<hr />
+						 <table width="100%">
+							<tr>
+								<td align="left"><h3>Netzwerk wählen...</h3></td>
+								<td id="networkrefresh" align="right"></td>
+							</tr>
+						</table> 		
+						<table id="networklist" class="wlantable" width="100%">
+								<!--Netzwerkliste -->
+						</table>
+						<hr />
+						<p class="pure-button pure-button-primary" onclick="clearWifi();">Netzwerkverbindungsdaten löschen</p>
+					</div>
+				</div>
+			</div>
+        </div>
+		<!-- ################################################### -->
+		<div id="wlan_set" class="content" style="display:none">
+			<table class="table_nav" cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr>
+				  <td><span onclick="showWLAN()"><span class="icon-arrow_left"></span>Zurück</span></td>
+				  <td><span onclick="setWLAN(document.getElementsByName('ssidInput')[0].value, document.getElementsByName('ssidPasswordInput')[0].value)">Speichern<span class="icon-arrow_right"></span></span></td>
+				</tr>
+			</table>
+			<h3 class="headtitle">Netzwerk Verbinden</h3>
+			<div class="pure-g">
+				<div class="pure-u-1-1 pure-u-lg-1-1">
+					<div class="1-box channel_conf">
+						<form>							
+							<div class="form-group">
+							  <input name="ssidInput" type="text" onkeyup="setssidInput();"maxlength="32" required="required"/>
+							  <label class="control-label" for="input">SSID</label><i class="bar"></i>
+							</div>			
+							<div class="form-group">
+							  <input name="ssidPasswordInput" type="password" maxlength="63" required="required"/>
+							  <label class="control-label" for="input">Passwort</label><i class="bar"></i>
+							</div>	
+						</form>
+					</div>
+				</div>
+			</div>
+        </div>
+		<!-- ################################################### -->
+		<div id="pitmaster_settings" class="content" style="display:none">
+			<table class="table_nav" cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr>
+				  <td><span onclick="showIndex()"><span class="icon-arrow_left"></span>Zurück</span></td>
+				  <td><span onclick="setPitmaster();">Speichern<span class="icon-arrow_right"></span></span></td>
+				</tr>
+			</table>
+			<h3 class="headtitle">Pitmaster Einstellungen</h3>
+			<div class="pure-g">
+				<div class="pure-u-1-1 pure-u-lg-1-1">
+					<div class="1-box channel_conf">
+						<form>
+							<div class="form-group">
+								<select id="pitmaster_typ" onchange="changePitmasterTyp();">
+									<option value="off">off</option>
+									<option value="auto">auto</option>
+									<option value="manual">manual</option>
+									<option value="autotune">autotune</option>
+								</select>
+								<label class="control-label" for="select">Pitmaster</label><i class="bar"></i>
+							</div>
+							<div id="pitmaster_profile_show">
+								<div class="form-group">
+									<select onchange="showPitmasterProfile(this.value);" id="pid_profile"><!-- Placeholder --></select>
+									<label class="control-label" onchange="changePitmasterView();" for="select">Profil</label></span><i class="bar"></i>
+									<span class="icon-pencil icon-form" onclick="togglePitmasterView();">
+								</div>					  
+							</div>
+							<div id="pitmaster_channel_show">
+								<div class="form-group">
+									<select id="pitmaster_channel"><!-- Placeholder --></select>
+									<label class="control-label" for="select">Kanal</label><i class="bar"></i>
+								</div>	
+							</div>
+							<div id="pitmaster_set_show">	
+								<div class="form-group">
+									<input type="text" id="pitmaster_set" maxlength="5" onkeyup="validateNumber(this,'1','1');" required="required"/>
+									<label class="control-label" for="input">Solltemperatur</label><i class="bar"></i>
+								</div>	
+							</div>
+							<div id="pitmaster_value_show">	
+								<div class="form-group">
+								  <input type="text" id="pitmaster_value" maxlength="3" onkeyup="validateNumber(this,'1');" required="required"/>
+								  <label class="control-label" for="input">Pitmaster-Wert (%)</label><i class="bar"></i>
+								</div>
+							</div>
+						</form>	
+					</div>
+				</div>
+			</div>
+		</div>	
+		
+		<div id="pitmaster_profile" class="content" style="display:none">
+			<table class="table_nav" cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr>
+				  <td><span onclick="backPidProfile();"><span class="icon-arrow_left"></span>Zurück</span></td>
+				  <td><span onclick="setPitmasterProfile();">Speichern<span class="icon-arrow_right"></span></span></td>
+				</tr>
+			</table>	
+			<div id="aktorik_settings_show">
+				<h3 class="headtitle">Aktorik</h3>
+				<div class="pure-g">
+					<div class="pure-u-1-1 pure-u-lg-1-1">
+						<div class="1-box channel_conf">
+							<form>
+								<div class="form-group">
+								  <input type="text" id="pid_name" maxlength="12" required="required"/>
+								  <label class="control-label" for="input">Profil Name</label><i class="bar"></i>
+								</div>
+								<div class="form-group">
+									<select id="pitmaster_profile_aktor"></select>
+									<label class="control-label" onchange="" for="select">Aktor</label><i class="bar"></i>
+								</div>
+								<table class="table50" cellpadding="0" cellspacing="0" width="100%" border="0">
+									<tr>
+									  <td>
+										<div class="form-group">
+										  <input type="text" id="pid_DCmin" maxlength="3" onkeyup="validateNumber(this,'1');" required="required"/>
+										  <label class="control-label" for="input">DCmin</label><i class="bar"></i>
+										  <span class="icon-play icon-input" onclick="setDC('0');"></span>
+										</div>
+									  </td>
+									  <td>	
+										<div class="form-group">
+										  <input type="text" id="pid_DCmax" maxlength="3" onkeyup="validateNumber(this,'1');" required="required"/>
+										  <label class="control-label" for="input">DCmax</label><i class="bar"></i>
+										  <span class="icon-play icon-input" onclick="setDC('1');"></span>
+										</div>							  
+									  </td>
+									</tr>
+								</table>
+							</form>	
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="pid_settings_show">
+				<h3 class="headtitle">PID</h3>
+				<div class="pure-g">
+					<div class="pure-u-1-1 pure-u-lg-1-1">
+						<div class="1-box channel_conf">
+							<form>		
+								<table class="table33" cellpadding="0" cellspacing="0" width="100%" border="0">
+									<tr>
+									  <td>
+										<div class="form-group">
+										  <input type="text" id="pid_Kp" maxlength="10" onkeyup="validateNumber(this,'3');" required="required"/>
+										  <label class="control-label" for="input">Kp</label><i class="bar"></i>
+										</div>								  	  
+									  </td>
+									  <td>
+										<div class="form-group">
+										  <input type="text" id="pid_Ki" maxlength="10" onkeyup="validateNumber(this,'3');" required="required"/>
+										  <label class="control-label" for="input">Ki</label><i class="bar"></i>
+										</div>								    
+									  </td>
+									  <td>
+										<div class="form-group">
+										  <input type="text" id="pid_Kd" maxlength="10" onkeyup="validateNumber(this,'3');" required="required"/>
+										  <label class="control-label" for="input">Kd</label><i class="bar"></i>
+										</div>								  		  
+									  </td>
+									</tr>
+								</table>
+								<table class="table33" cellpadding="0" cellspacing="0" width="100%" border="0">
+									<tr>
+									  <td>
+										<div class="form-group">
+										  <input type="text" id="pid_Kp_a" maxlength="10" onkeyup="validateNumber(this,'3');" required="required"/>
+										  <label class="control-label" for="input">Kp_a</label><i class="bar"></i>
+										</div>
+									  </td>
+									  <td>
+										<div class="form-group">
+										  <input type="text" id="pid_Ki_a" maxlength="10" onkeyup="validateNumber(this,'3');" required="required"/>
+										  <label class="control-label" for="input">Ki_a</label><i class="bar"></i>
+										</div>
+									  </td>
+									  <td>
+										<div class="form-group">
+										  <input type="text" id="pid_Kd_a" maxlength="10" onkeyup="validateNumber(this,'3');" required="required"/>
+										  <label class="control-label" for="input">Kd_a</label><i class="bar"></i>
+										</div>
+									  </td>
+									</tr>
+								</table>
+							</form>	
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+		<!-- ################################################### -->
+		<div id="channel_settings" class="content" style="display:none">
+			<table class="table_nav" cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr>
+				  <td><span onclick="showIndex()"><span class="icon-arrow_left"></span>Zurück</span></td>
+				  <td><span id="channel_settings_save">Speichern<span class="icon-arrow_right"></span></span></td>
+				</tr>
+			</table>			
+			<h3 id="channel_settings_headtitle" class="headtitle">N.C.</h3>
+            <div class="pure-g">
+				<div class="pure-u-1-1 pure-u-md-1-1 pure-u-lg-1-1">
+					<div class="1-box channel_conf">
+						<form>							
+							<div class="form-group">
+							  <input type="text" class="temp_input" id="channel_name" maxlength="10" required="required"/>
+							  <label class="control-label" for="input">Kanal Name</label><i class="bar"></i>
+							</div>
+							<div class="form-group">
+							  <input class="temp_input" id="temp_max" type="text" onkeyup="validateNumber(this,'1');" maxlength="6" required="required"/>
+							  <label class="control-label" for="input">Temp Max</label><i class="bar"></i>
+							</div>							
+							<div class="form-group">
+							  <input class="temp_input" id="temp_min" type="text" onkeyup="validateNumber(this,'1');" maxlength="6" required="required"/>
+							  <label class="control-label" for="input">Temp Min</label><i class="bar"></i>
+							</div>												
+							<div class="form-group">
+							  <select id="sensor">
+									<!-- Placeholder -->
+							  </select>
+							  <label class="control-label" for="select">Fühler</label><i class="bar"></i>
+							</div>	
+							<div class="form-group">
+							  <select id="color">
+								<option value="#5587A2">Niagara</option>
+								<option value="#FFAEC9">Rosa</option>
+								<option value="#0C4C88">Lapis Blue</option>
+								<option value="#EF562D">Orange</option>
+								<option value="#A349A4">Lila</option>
+								<option value="#ED1C24">Red</option>
+								<option value="#22B14C">Green</option>
+								<option value="#FFC100">Gold</option>
+								<option value="#5C7148">Kale</option>
+								<option value="#804000">Brown</option>
+							  </select>
+							  <label class="control-label" for="select">Farbe</label><i class="bar"></i>
+							</div>	
+							<div class="checkbox"><label><input id="webalarm" type="checkbox" checked="checked"/><i class="helper"></i>Temperatur Alarm</label></div>
+						</form>
+					</div>
+				</div>
+			</div>
+        </div>
+		<!-- ################################################### -->
+		<div id="system_config" class="content" style="display:none">
+			<!-- html for about-Site -->
+			<table class="table_nav" cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr>
+				  <td><span onclick="showIndex();"><span class="icon-arrow_left"></span>Zurück</span></td>
+				  <td><span onclick="setSystem();">Speichern<span class="icon-arrow_right"></span></span></td>
+				</tr>
+			</table>
+			<h3 class="headtitle">System Einstellungen</h3>
+			<div class="pure-g">
+				<div class="pure-u-1-1 pure-u-md-1-1 pure-u-lg-1-1">
+					<div class="1-box channel_conf">
+						<form>							
+							<div class="form-group">
+							  <input type="text" id="hostname" maxlength="13" required="required"/>
+							  <label class="control-label" for="input">Hostname</label><i class="bar"></i>
+							</div>
+							<div class="form-group">
+							  <input type="text" id="apname" maxlength="13" required="required"/>
+							  <label class="control-label" for="input">AP-Name</label><i class="bar"></i>
+							</div>										
+							<div class="form-group">
+							  <select id="language">
+								<option value="de">Deutsch</option>
+							  </select>
+							  <label class="control-label" for="select">Sprache</label><i class="bar"></i>
+							</div>							
+							<div class="form-group">
+							  <select id="unit">
+								<option value="C">Celsius</option>
+								<option value="F">Fahrenheit</option>
+							  </select>
+							  <label class="control-label" for="select">Einheit</label><i class="bar"></i>
+							</div>	
+							<div class="form-group">
+							  <select id="hwversion"></select><label class="control-label" for="select">Hardwareversion</label><i class="bar"></i>
+							</div>
+							<div class="checkbox"><label><input id="hwalarm" type="checkbox" checked="checked"/><i class="helper"></i>Hardwarealarm</label></div>
+							<div class="checkbox"><label><input id="fastmode" type="checkbox"/><i class="helper"></i>Schnelllauf</label></div>
+							<div class="checkbox"><label><input id="searchUpdate" type="checkbox"/><i class="helper"></i>Nach Updates suchen</label></div>								
+						</form>
+					</div>
+				</div>
+			</div>
+        </div>
+		<!-- ################################################### -->
+		<div id="extended_settings" class="content" style="display:none">
+			<!-- html for about-Site -->
+			<table class="table_nav" cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr>
+				  <td><span onclick="showIndex();"><span class="icon-arrow_left"></span>Zurück</span></td>
+				  <td><span onclick="">Speichern<span class="icon-arrow_right"></span></span></td>
+				</tr>
+			</table>
+			<h3 class="headtitle">Extended settings</h3>
+			<div class="pure-g">
+				<div class="pure-u-1-1 pure-u-md-1-1 pure-u-lg-1-1">
+					<div class="1-box channel_conf">
+						<form>							
+							<p class="pure-button pure-button-primary" onclick="restart();">Restart Nano</p>
+							<p class="pure-button pure-button-primary" onclick="sethwversion();">Set V2</p>
+						</form>
+					</div>
+				</div>
+			</div>
+        </div>
+		<!-- ################################################### -->
+		<div id="thingspeak" class="content" style="display:none">
+			<table class="table_nav" cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr>
+				  <td><span onclick="showIndex();"><span class="icon-arrow_left"></span>Zurück</span></td>
+				  <td><span onclick="setThingspeak();">Speichern<span class="icon-arrow_right"></span></span></td>
+				</tr>
+			</table>
+			<h3 class="headtitle">Nano Cloud</h3>
+			<div class="pure-g">
+				<div class="pure-u-1-1 pure-u-lg-1-1">
+					<div class="1-box channel_conf">
+						<form>
+							<div class="checkbox">
+							  <label>
+								<input id="CLon" type="checkbox" checked="checked"/><i class="helper"></i>Nano Cloud aktivieren
+							  </label>
+							</div>
+							<div class="form-group">
+							  <select id="CLinterval">
+								<option value="15">15 Sekunden</option>
+								<option value="30">30 Sekunden</option>
+								<option value="60">1 Minute</option>
+								<option value="120">2 Minuten</option>
+								<option value="300">5 Minuten</option>
+							  </select>
+							  <label class="control-label" for="select">Sendeintervall</label><i class="bar"></i>
+							</div>						
+							<div class="form-group">
+							  <label for="input"><a id="CLtoken" class="link" href="#"></a></label><i class="bar"></i>
+							</div>							
+							<p class="pure-button pure-button-primary" onclick="newToken();">Token generieren</p>
+						</form>
+					</div>
+				</div>
+			</div>			
+			<h3 class="headtitle">Thingspeak</h3>
+			<div class="pure-g">
+				<div class="pure-u-1-1 pure-u-lg-1-1">
+					<div class="1-box channel_conf">
+						<form>							
+							<div class="checkbox">
+							  <label>
+								<input id="TSon" type="checkbox" checked="checked"/><i class="helper"></i>Thingspeak aktivieren
+							  </label>
+							</div>
+							<div class="form-group">
+							  <input type="text" id="TSwrite" maxlength="26" required="required"/>
+							  <label class="control-label" for="input">Channel Write API Key</label><i class="bar"></i>
+							</div>
+							<div class="form-group">
+							  <input type="text" id="TShttp" maxlength="26" required="required"/>
+							  <label class="control-label" for="input">ThingHTTP API Key</label><i class="bar"></i>
+							</div>
+							<div class="form-group">
+							  <input type="text" id="TSchID" maxlength="26" required="required"/>
+							  <label class="control-label" for="input">Channel ID</label><i class="bar"></i>
+							</div>
+							<div class="form-group">
+							  <select id="TSinterval">
+								<option value="30">30 Sekunden</option>
+								<option value="60">1 Minute</option>
+								<option value="120">2 Minuten</option>
+								<option value="300">5 Minuten</option>
+							  </select>
+							  <label class="control-label" for="select">Sendeintervall</label><i class="bar"></i>
+							</div>
+							<div class="checkbox">
+							  <label>
+								<input id="TSshow8" type="checkbox" checked="checked"/><i class="helper"></i>Batterieladezustand anstatt CH8
+							  </label>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<h3 class="headtitle">Private MQTT Client</h3>
+			<div class="pure-g">
+				<div class="pure-u-1-1 pure-u-lg-1-1">
+					<div class="1-box channel_conf">
+						<form>							
+							<div class="checkbox">
+							  <label>
+								<input id="PMQon" type="checkbox" checked="checked"/><i class="helper"></i>Private MQTT aktivieren
+							  </label>
+							</div>
+							<table class="table50" cellpadding="0" cellspacing="0" width="100%" border="0">
+								<tr>
+								  <td>
+									<div class="form-group">
+										<input type="text" id="PMQhost" maxlength="26" required="required"/>
+										<label class="control-label" for="input">MQTT Host</label><i class="bar"></i>
+									</div>
+								  </td>
+								  <td>
+									<div class="form-group">
+										<input type="text" id="PMQport" maxlength="26" required="required"/>
+										<label class="control-label" for="input">MQTT Port</label><i class="bar"></i>
+									</div>
+								  </td>
+								</tr>
+								<tr>
+								  <td>
+									<div class="form-group">
+										<input type="text" id="PMQuser" maxlength="26" required="required"/>
+										<label class="control-label" for="input">MQTT User</label><i class="bar"></i>
+									</div>
+								  </td>
+								  <td>
+									<div class="form-group">
+										<input type="text" id="PMQpass" maxlength="26" required="required"/>
+										<label class="control-label" for="input">MQTT Password</label><i class="bar"></i>
+									</div>
+								  </td>
+								</tr>
+								<tr>
+								  <td>
+									<div class="form-group">
+									  <select id="PMQinterval">
+										<option value="10">10 Sekunden</option>
+										<option value="30">30 Sekunden</option>
+										<option value="60">1 Minute</option>
+										<option value="120">2 Minuten</option>
+										<option value="300">5 Minuten</option>
+									  </select>
+									  <label class="control-label" for="select">Sendeintervall</label><i class="bar"></i>
+									</div>
+								  </td>
+								  <td>	
+									<div class="form-group">
+									  <select id="PMQqos">
+										<option value="0">0</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+									  </select>
+									  <label class="control-label" for="select">QoS</label><i class="bar"></i>
+									</div>
+								  </td>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+			</div>
+
+        </div>
+		<!-- ################################################### -->
+		<div id="push_notification" class="content" style="display:none">
+			<!-- html for thingspeak-Site -->
+			<table class="table_nav" cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr>
+				  <td><span onclick="showIndex();"><span class="icon-arrow_left"></span>Zurück</span></td>
+				  <td><span onclick="setPushNotification();">Speichern<span class="icon-arrow_right"></span></span></td>
+				</tr>
+			</table>
+			<h3 class="headtitle">Telegram</h3>
+			<div class="pure-g">
+				<div class="pure-u-1-1 pure-u-lg-1-1">
+					<div class="1-box channel_conf">
+						<form>	
+							<div class="checkbox">
+							  <label>
+								<input id="TGon" type="checkbox" checked="checked"/><i class="helper"></i>Telegram aktivieren
+							  </label>
+							</div>						
+							<div class="form-group">
+							  <input type="text" class="temp_input" id="TGtoken" maxlength="50" required="required"/>
+							  <label class="control-label" for="input">Token</label><i class="bar"></i>
+							</div>
+							<div class="form-group">
+							  <input type="text" class="temp_input" id="TGid" maxlength="10" required="required"/>
+							  <label class="control-label" for="input">Chat ID</label><i class="bar"></i>
+							</div>
+							<!-- <a class="pure-button" href="" onclick="getChatID();">A Pure Button</a> -->
+							<!-- <p class="pure-button pure-button-primary" onclick="getChatID();">ChatID ermitteln</p> -->
+							<!-- <button class="" onSubmit="return false;">A Primary Button</button>														 -->
+						</form>
+					</div>
+				</div>
+			</div>
+        </div>
+		<!-- ################################################### -->
+		<div id="about" class="content" style="display:none">
+			<table class="table_nav" cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr>
+				  <td><span onclick="showIndex();"><span class="icon-arrow_left"></span>Zurück</span></td>
+				  <td></td>
+				</tr>
+			</table>
+			<h3 class="headtitle">WlanThermo Team</h3>
+			<div class="pure-g">
+				<div class="pure-u-1-1  pure-u-md-1-1 pure-u-lg-1-1">
+					<div class="1-box channel_conf">
+						<table>
+							<tr><td>&#10032;&nbsp;Armin Thinnes</td></tr>
+							<tr><td>&#10032;&nbsp;Björn Schrader</td></tr>
+							<tr><td>&#10032;&nbsp;Alexander Schäfer</td></tr>
+							<tr><td>&#10032;&nbsp;Steffen Ochs</td></tr>
+							<tr><td onclick="touchStart();">&#10032;&nbsp;Florian Riedl</td></tr>
+							<tr><td>&#10032;&nbsp;Maik Kaste</td></tr>
+						</table>
+					</div>
+				</div>
+			</div>
+        </div>
+		<!-- ################################################### -->
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-  </body>
+</div>
+<div id="cover">
+	<div id="spinner"></div>
+</div>
+<script> 
+	var byId = function( id ) { return document.getElementById( id ); };
+	var byClass = function( id ) { return document.getElementsByClassName( id ); };
+	var getIcon = function( icon ) { return '<span class="icon-'  + icon + '"></span>'; };
+	(function (window, document) {
+
+		var byId = function( id ) { return document.getElementById( id ); };
+	
+		var layout = byId('layout'),menu = byId('menu'),menuLink = byId('menuLink'),menuHome = byId('menuHome'),menuPitmaster = byId('menuPitmaster'),menuNotification = byId('menuNotification'),menuWlan = byId('menuWlan'),menuSystem = byId('menuSystem'),menuThingspeak = byId('menuThingspeak'),menuAbout = byId('menuAbout'),content  = byId('main');
+		function toggleClass(element, className) {
+			var classes = element.className.split(/\s+/),
+				length = classes.length,
+				i = 0;
+			for(; i < length; i++) {
+			  if (classes[i] === className) {
+				classes.splice(i, 1);
+				break;
+			  }
+			}
+			// The className is not found
+			if (length === classes.length) {
+				classes.push(className);
+			}
+
+			element.className = classes.join(' ');
+		}
+
+		function toggleAll(e) {
+			var active = 'active';
+			e.preventDefault();
+			toggleClass(layout, active);
+			toggleClass(menu, active);
+			toggleClass(menuLink, active);
+		}
+
+		menuLink.onclick = function (e) {toggleAll(e);};
+		menuHome.onclick = function (e) {if (menu.className.indexOf('active') !== -1) {toggleAll(e);showIndex();}};
+		menuWlan.onclick = function (e) {if (menu.className.indexOf('active') !== -1) {toggleAll(e);showWLAN();}};
+		menuThingspeak.onclick = function (e) {if (menu.className.indexOf('active') !== -1) {toggleAll(e);showThingspeak();}};
+		menuPitmaster.onclick = function (e) {if (menu.className.indexOf('active') !== -1) {toggleAll(e);showPitmaster();}};
+		menuNotification.onclick = function (e) {if (menu.className.indexOf('active') !== -1) {toggleAll(e);showPushNotification();}};
+		menuSystem.onclick = function (e) {if (menu.className.indexOf('active') !== -1) {toggleAll(e);showSystem();}};
+		menuAbout.onclick = function (e) {if (menu.className.indexOf('active') !== -1) {toggleAll(e);showAbout();}};
+		content.onclick = function(e) {if (menu.className.indexOf('active') !== -1) {toggleAll(e);}};
+	}(this, this.document));
+
+	document.addEventListener("DOMContentLoaded", function(event) { 
+		setThermoName();
+		setInterval("readTemp();", 2000);
+	});
+	
+	byId('index').style.display = "inline";
+	
+	function showWLAN(){
+		hideAll();
+		byId('wlan_config').style.display = "inline";
+		networklist();
+		networkscan();
+	}
+	
+	function wlan_active(){
+		if(byId('wlan_active').checked){
+	
+		}else{
+			txt = 'Soll die Wifi-Verbindung bis zum nächsten Restart des Systems wirklich abgeschaltet werden?';
+			if (confirm(txt) == true) {
+				loadJSON('stopwifi', '', '60000', function (response) {
+                  if(response == 'true'){      
+                    self.location.href='about:blank'
+                  }
+                });
+			} else {
+				byId('wlan_active').checked = true;
+			}
+		}
+	}
+	
+	function clearWifi(){
+		txt = 'Sollen wirklich alle Netzwerkverbindungsdaten gelöscht werden?\nNano startet danach im AP-Modus neu.';
+		if (confirm(txt) == true) {
+			loadJSON('clearwifi', '', '60000', function (response) {
+                if(response == 'true'){      
+                   self.location.href='about:blank'
+                }
+			});
+        }
+	}
+	
+	function showPlot(){
+		hideAll();
+		byId('plot').style.display = "inline";
+	}	
+
+	function showThingspeak(){
+		hideAll();
+		showLoader('true');
+		loadJSON('settings', '', '3000', function (response) {
+			jr = JSON.parse(response);
+			byId('TSon').checked = jr.iot.TSon;
+			byId('TSwrite').value = jr.iot.TSwrite;
+			byId('TShttp').value = jr.iot.TShttp;
+			byId('TSchID').value = jr.iot.TSchID;
+			byId('TSinterval').value = jr.iot.TSint;
+			byId('TSshow8').checked = jr.iot.TSshow8;
+			byId('PMQon').checked = jr.iot.PMQon;
+			byId('PMQhost').value = jr.iot.PMQhost;
+			byId('PMQport').value = jr.iot.PMQport;
+			byId('PMQuser').value = jr.iot.PMQuser;
+			byId('PMQpass').value = jr.iot.PMQpass;
+			byId('PMQqos').value = jr.iot.PMQqos;
+			byId('PMQinterval').value = jr.iot.PMQint;
+			byId('CLon').checked = jr.iot.CLon;
+			byId('CLinterval').value = jr.iot.CLint;
+			byId('CLtoken').innerHTML = "http://cloud.wlanthermo.de/index.html?api_token=" + jr.iot.CLtoken;			
+			byId("CLtoken").setAttribute("href", "http://cloud.wlanthermo.de/index.html?api_token=" + jr.iot.CLtoken);
+			byId('thingspeak').style.display = "inline";
+			showLoader('false');
+		})	
+	}	
+
+	function newToken(){
+		showLoader('true');
+		loadJSON('newtoken', '', '3000', function (response){
+		byId('CLtoken').innerHTML = "http://cloud.wlanthermo.de/index.html?api_token=" + response;			
+		byId("CLtoken").setAttribute("href", "http://cloud.wlanthermo.de/index.html?api_token=" + response);
+			showLoader('false');	
+		})
+	}
+	function setThingspeak(){
+		showLoader('true');
+		loadJSON('settings', '', '3000', function (response){
+			jr = JSON.parse(response);
+			jr.iot.TSon = byId('TSon').checked;
+			jr.iot.TSwrite = byId('TSwrite').value;
+			jr.iot.TShttp = byId('TShttp').value;
+			jr.iot.TSchID = byId('TSchID').value;
+			jr.iot.TSint = byId('TSinterval').value;
+			jr.iot.TSshow8 = byId('TSshow8').checked;
+			jr.iot.PMQon = byId('PMQon').checked;
+			jr.iot.PMQhost = byId('PMQhost').value;
+			jr.iot.PMQport = byId('PMQport').value;
+			jr.iot.PMQuser = byId('PMQuser').value;
+			jr.iot.PMQpass = byId('PMQpass').value;
+			jr.iot.PMQqos = byId('PMQqos').value;
+			jr.iot.PMQint = byId('PMQinterval').value;
+			jr.iot.CLon = byId('CLon').checked;
+			jr.iot.CLtoken = byId('CLtoken').value;
+			jr.iot.CLint = byId('CLinterval').value;
+			var data = JSON.stringify(jr.iot);
+			//alert(data);
+			showLoader('true');
+			loadJSON('setIoT', data, '60000', function (response) {
+				showIndex();
+				showLoader('false');
+			})		
+		})
+	}
+	
+	function showPushNotification(){
+		hideAll();
+		showLoader('true');
+		loadJSON('settings', '', '3000', function (response) {
+			jr = JSON.parse(response);
+			byId('TGon').checked = jr.iot.TGon;
+			byId('TGtoken').value = jr.iot.TGtoken;
+			byId('TGid').value = jr.iot.TGid;
+			byId('push_notification').style.display = "inline";
+			showLoader('false');
+		})				
+	}
+
+	function getChatID(){
+		getRequest();
+	}
+	
+	function setPushNotification(){
+		showLoader('true');
+		loadJSON('settings', '', '3000', function (response){
+			jr = JSON.parse(response);
+			jr.iot.TGon = byId('TGon').checked;
+			jr.iot.TGtoken = byId('TGtoken').value;
+			jr.iot.TGid = byId('TGid').value;
+			var data = JSON.stringify(jr.iot);
+			//alert(data);
+			showLoader('true');
+			loadJSON('setIoT', data, '60000', function (response) {
+				showIndex();
+				showLoader('false');
+			})		
+		})
+	}
+	
+	function showSetWLAN(){
+		hideAll();
+		byId('wlan_set').style.display = "inline";
+	}	
+
+	function showSetChannel(channel){
+        hideAll();
+        showLoader('true');
+        loadJSON('settings', '', '3000', function (response) {
+            jr = JSON.parse(response);
+            clearOption('sensor');
+            for (var i = 0; i < jr.sensors.length; i++) {
+                byId('sensor').options[byId('sensor').options.length] = new Option(jr.sensors[i], i);
+            }
+            loadJSON('data', '', '3000', function (response) {
+                jr = JSON.parse(response);
+                byId('channel_settings_save').setAttribute('onclick','setChannel(' + channel + ');');
+                byId('channel_settings_headtitle').innerHTML  = jr.channel[channel].name;
+                byId('channel_name').value  = jr.channel[channel].name;
+                byId('temp_max').value  = jr.channel[channel].max;
+                byId('temp_min').value  = jr.channel[channel].min;
+                byId('color').value = jr.channel[channel].color;
+                byId('sensor').value = jr.channel[channel].typ;
+                byId('webalarm').checked = jr.channel[channel].alarm;
+                byId('channel_settings').style.display = "inline";
+                showLoader('false');
+            })
+        })
+    }
+
+	function setChannel(channel){
+		showLoader('true');
+		loadJSON('data', '', '3000', function (response) {
+			jr = JSON.parse(response);
+			jr.channel[channel].min = byId('temp_min').value;
+			jr.channel[channel].max = byId('temp_max').value;
+			jr.channel[channel].name = byId('channel_name').value;
+			jr.channel[channel].typ = byId('sensor').value;
+			jr.channel[channel].alarm = byId('webalarm').checked;
+			jr.channel[channel].color = byId('color').value;
+			var data = JSON.stringify(jr.channel[channel]);
+				//alert(data);
+			showLoader('true');
+			loadJSON('setchannels', data, '60000', function (response) {
+				showIndex();
+				showLoader('false');
+			})		
+		})	
+	}
+	
+	function clearOption(id){
+		var selectbox = document.getElementById(id);
+		var i;
+		for(i = selectbox.options.length - 1 ; i >= 0 ; i--)
+		{
+			selectbox.remove(i);
+		}
+	}
+	
+	function setWLAN(ssid, passwd){
+		showLoader('true');
+		var data='{"ssid":"' + ssid + '","password":"' + passwd + '"}';
+		loadJSON('setnetwork', data, '60000', function (response) {
+			showWLAN();
+			showLoader('false');
+		})
+		
+	}	
+	
+	function setThermoName(){
+		showLoader('true');
+		loadJSON('settings', '', '5000', function (response) {
+			jr = JSON.parse(response);
+			byId('thermoname').innerHTML = jr.system.host;
+			if(jr.system.getupdate == 'false'){
+				byClass("notification")[0].style.display = "none";
+			}else{
+				byClass("notification")[0].style.display = "inline";
+			}
+			showLoader('false');
+		})
+	}
+	
+	var updateActivated = 'false';
+	
+	function checkUpdateActivated(){
+		loadJSON('updatestatus', '', '3000', function (response) {
+			jr = JSON.parse(response);
+			if (jr == true){
+				showLoader('true');
+			}else if (jr == false){
+				showLoader('false')
+				updateActivated = 'false';
+				byClass("notification")[0].style.display = "none";
+				location.reload(true);
+			}
+		})	
+	}
+	
+	function showLoader(show){
+		if (show == 'true') {
+			byId('cover').classList.add("cover_active");
+			byId('spinner').classList.add("spinner");		
+		}else{
+			byId('cover').classList.remove("cover_active");
+			byId('spinner').classList.remove("spinner");
+		}
+	}
+	
+	function update(){
+		loadJSON('settings', '', '3000', function (response) {
+			jr = JSON.parse(response);
+			txt = 'Wollen Sie das aktuelle Update Installieren?\n\nAktuelle Version:' + jr.system.version + '\nNeue Version:' + jr.system.getupdate;
+			if (confirm(txt) == true) {
+				loadJSON('update', '', '60000', function (response) {
+					showLoader('true');
+					updateActivated = 'true';
+				});
+			} else {
+			
+			}						
+		})	
+	}
+	
+	function showSystem(){
+		hideAll();
+		showLoader('true');
+		loadJSON('settings', '', '3000', function (response) {
+			jr = JSON.parse(response);
+			byId('language').value = jr.system.language;
+			byId('hostname').value = jr.system.host;
+			byId('apname').value = jr.system.ap;
+			byId('thermoname').innerHTML = jr.system.host;
+			byId('unit').value = jr.system.unit;
+			byId('hwalarm').checked = jr.system.hwalarm;
+			byId('fastmode').checked = jr.system.fastmode;
+			byId('searchUpdate').checked = jr.system.autoupd;
+			clearOption('hwversion');
+			for (var i = 0; i < jr.hardware.length; i++) {
+				byId('hwversion').options[byId('hwversion').options.length] = new Option(jr.hardware[i], jr.hardware[i]);
+			}
+			byId('hwversion').value = jr.system.hwversion;
+			byId('system_config').style.display = "inline";
+			showLoader('false');
+		})
+	}
+	
+	function setSystem(){
+		showLoader('true');
+		loadJSON('settings', '', '3000', function (response) {
+			jr = JSON.parse(response);
+			jr.system.host = byId('hostname').value.replace(/ /g, '_');
+			jr.system.ap = byId('apname').value.replace(/ /g, '_');
+			jr.system.hwversion = byId('hwversion').value;
+			jr.system.language = byId('language').value;
+			jr.system.unit = byId('unit').value;
+			jr.system.hwalarm = byId('hwalarm').checked;
+			jr.system.fastmode = byId('fastmode').checked;		
+			jr.system.autoupd = byId('searchUpdate').checked;			
+			var data = JSON.stringify(jr.system);
+			showLoader('true');
+			loadJSON('setsystem', data, '60000', function (response) {
+				//alert(data);
+				byId('thermoname').innerHTML = jr.system.host;
+				showIndex();
+				showLoader('false');
+			})		
+		})	
+	}
+	
+	function showPitmaster(){		
+		hideAll();
+		showLoader('true');
+		loadJSON('data', '', '3000', function (response) {
+			jr = JSON.parse(response);
+			byId('pitmaster_typ').value = jr.pitmaster.typ;
+			clearOption('pitmaster_channel');
+			for (var i = 0; i < jr.channel.length; i++) {
+				byId('pitmaster_channel').options[byId('pitmaster_channel').options.length] = new Option('#' + jr.channel[i].number + ' - ' + jr.channel[i].name, jr.channel[i].number);
+			}
+			byId('pitmaster_channel').value = jr.pitmaster.channel;
+			byId('pitmaster_set').value = jr.pitmaster.set;
+			byId('pitmaster_value').value = jr.pitmaster.value;
+			byId('pitmaster_settings').style.display = "inline";
+			showLoader('false');
+			showPitmasterProfile(jr.pitmaster.pid);
+			changePitmasterTyp();
+		})
+	}
+	function changePitmasterTyp(){		
+		switch(byId('pitmaster_typ').value) {
+			case 'off':
+				byId('pitmaster_value_show').style.display = "none";
+				byId('pitmaster_channel_show').style.display = "none";
+				byId('pitmaster_set_show').style.display = "none";
+				byId('pitmaster_profile_show').style.display = "none";
+				byId('pid_settings_show').style.display = "none";
+				break;
+			case 'manual':
+				byId('pitmaster_value_show').style.display = "inline";	
+				byId('pitmaster_channel_show').style.display = "none";
+				byId('pitmaster_set_show').style.display = "none";
+				byId('pitmaster_profile_show').style.display = "inline";
+				byId('pid_settings_show').style.display = "none";
+
+				break;
+			case 'autotune':
+				byId('pitmaster_profile_show').style.display = "inline";
+				byId('pitmaster_value_show').style.display = "none";
+				byId('pitmaster_channel_show').style.display = "inline";
+				byId('pitmaster_set_show').style.display = "inline";
+				byId('pid_settings_show').style.display = "none";				
+				break;
+			case 'auto':
+				byId('pitmaster_profile_show').style.display = "inline";
+				byId('pitmaster_value_show').style.display = "none";
+				byId('pitmaster_channel_show').style.display = "inline";
+				byId('pitmaster_set_show').style.display = "inline";			
+				byId('pid_settings_show').style.display = "inline";
+				break;
+			default:
+				byId('pitmaster_profile_show').style.display = "inline";
+				byId('pitmaster_value_show').style.display = "inline";
+				byId('pitmaster_channel_show').style.display = "inline";
+				byId('pitmaster_set_show').style.display = "inline";
+				byId('pid_settings_show').style.display = "inline";
+		} 		
+	}
+	function setPitmaster(){
+		showLoader('true');
+		loadJSON('data', '', '3000', function (response) {
+			jr = JSON.parse(response);
+			jr.pitmaster.typ = byId('pitmaster_typ').value;
+			jr.pitmaster.channel = byId('pitmaster_channel').value;
+			jr.pitmaster.set = byId('pitmaster_set').value;
+			jr.pitmaster.value = byId('pitmaster_value').value
+			jr.pitmaster.pid = byId('pid_profile').value
+			var data = JSON.stringify(jr.pitmaster);
+			loadJSON('setpitmaster', data, '60000', function (response) {
+				//alert(data);
+				//setPitmasterProfile();
+				showIndex();
+				showLoader('false');
+			})	
+		})
+		showLoader('false');		
+	}
+	
+	function showPitmasterProfile(profile){
+		showLoader('true');
+		loadJSON('settings', '', '3000', function (response) {
+			jr = JSON.parse(response);
+			clearOption('pitmaster_profile_aktor');
+			clearOption('pid_profile');
+			for (var i = 0; i < jr.pid.length; i++) {
+				byId('pid_profile').options[byId('pid_profile').options.length] = new Option(jr.pid[i].name, i);
+			}
+			byId('pid_profile').value = profile;	
+			for (var i = 0; i < jr.aktor.length; i++) {
+				byId('pitmaster_profile_aktor').options[byId('pitmaster_profile_aktor').options.length] = new Option(jr.aktor[i], i);
+			}
+			byId('pitmaster_profile_aktor').value = jr.pid[profile].aktor;
+			byId('pid_name').value = jr.pid[profile].name;	
+			byId('pid_Kp').value = jr.pid[profile].Kp;	
+			byId('pid_Ki').value = jr.pid[profile].Ki;
+			byId('pid_Kd').value = jr.pid[profile].Kd;
+			byId('pid_Kp_a').value = jr.pid[profile].Kp_a;
+			byId('pid_Ki_a').value = jr.pid[profile].Ki_a;
+			byId('pid_Kd_a').value = jr.pid[profile].Kd_a;
+			byId('pid_DCmin').value = jr.pid[profile].DCmmin;
+			byId('pid_DCmax').value = jr.pid[profile].DCmmax;
+			showLoader('false');
+		})			
+	}
+	
+	function togglePitmasterView(){
+		if(byId('pitmaster_settings').style.display == "inline"){
+			byId('pitmaster_settings').style.display = "none";
+			byId('pitmaster_profile').style.display = "inline";		
+		}else{
+			byId('pitmaster_settings').style.display = "inline";
+			byId('pitmaster_profile').style.display = "none";	
+		}
+	}
+
+	function backPidProfile(){
+		showPitmasterProfile(byId('pid_profile').value);
+		togglePitmasterView();
+	}
+	
+	function setPitmasterProfile(){
+		loadJSON('settings', '', '3000', function (response) {
+			jr = JSON.parse(response);
+			profile = byId('pid_profile').value;
+			jr.pid[profile].aktor = byId('pitmaster_profile_aktor').value;
+			jr.pid[profile].name = byId('pid_name').value;
+			jr.pid[profile].Kp = byId('pid_Kp').value;
+			jr.pid[profile].Ki = byId('pid_Ki').value;
+			jr.pid[profile].Kd = byId('pid_Kd').value;
+			jr.pid[profile].Kp_a = byId('pid_Kp_a').value;
+			jr.pid[profile].Ki_a = byId('pid_Ki_a').value;
+			jr.pid[profile].Kd_a = byId('pid_Kd_a').value;
+			jr.pid[profile].DCmmin = byId('pid_DCmin').value;
+			jr.pid[profile].DCmmax = byId('pid_DCmax').value;
+			var data = JSON.stringify(jr.pid);
+			loadJSON('setpid', data, '60000', function (response) {
+				//alert(data);
+				togglePitmasterView();
+			})	
+		})
+		showLoader('false');	
+	}
+	
+	function setDC(dc){
+		if(dc == '0'){
+			var_val = byId('pid_DCmin').value;
+		}else{
+			var_val = byId('pid_DCmax').value;
+		}
+		txt = 'Soll der Pitmasterausgang für 10Sekunden mit ' + var_val + '% angesteuert werden?';
+		if (confirm(txt) == true) {
+			showLoader('true');
+			data = '?aktor=' + byId('pitmaster_profile_aktor').value + '&dc=' + dc + '&val=' + var_val;
+			loadJSON('setDC' + data, '', '60000', function (response) {
+				//alert(data);
+			})	
+			showLoader('false');
+		} else {
+
+		}		
+	}
+	
+	function getRequest(){
+		data = "?host='http://nano.norma.uberspace.de'&url='/telegram.php?token=344407734:AAGEdm9gxoFDfuXKUL6HynxDopYrdIYkMPc'&method=GET";
+		loadJSON('getRequest', data, '60000', function (response) {
+			jr = JSON.parse(response);
+			alert(jr);
+		})
+	}
+	function showChart(){
+		hideAll();
+		byId('chart_config').style.display = "inline";
+	}	
+	
+	function showIndex(){
+		hideAll();
+		byId('index').style.display = "inline";
+	}
+	
+	function showAbout(){
+		hideAll();
+		byId('about').style.display = "inline";
+	}	
+
+	function hideAll(){
+		hideIDs = ['index','wlan_config','system_config','system_config','about','wlan_set','thingspeak','push_notification','channel_settings','pitmaster_settings','pitmaster_profile','extended_settings'];
+		for (var i = 0; i < hideIDs.length; i++) {
+			byId(hideIDs[i]).style.display = "none";
+		}
+	}
+	
+    function loadJSON(url, data, timeout, callback) {
+        var xobj = new XMLHttpRequest();
+        xobj.overrideMimeType("application/json");
+        xobj.open('POST', url, true);
+        xobj.setRequestHeader("Content-Type", "application/json");
+		xobj.timeout = timeout;
+        xobj.onreadystatechange = function () {
+            if (xobj.readyState == 4 && xobj.status == "200") {
+                // .open will NOT return a value but simply returns undefined in async mode so use a callback
+                callback(xobj.responseText);
+            }
+        }
+		xobj.ontimeout = function (e) {
+			if (updateActivated != 'true'){
+				showLoader('false');
+			}
+		};
+        xobj.send(data);
+    }
+	
+	var showBatteryWlanIcon = true;
+	
+	function setshowBatteryWlanIcon(){
+		showBatteryWlanIcon = false;
+		readTemp();
+		setTimeout(function(){
+			showBatteryWlanIcon = true;
+        }, 10000);
+		//setTimeout(showBatteryWlanIcon = false, 3000)
+	}
+		
+	function getRSSIIcon(dbm){
+		data = '';
+		if (showBatteryWlanIcon == true){
+			if(dbm >= '-80'){
+				data = data + getIcon('Wlan100');
+			}else if (dbm >= '-95'){
+				data = data + getIcon('Wlan66');
+			}else if (dbm >= '-105'){
+				data = data + getIcon('Wlan33');
+			}
+			return data;	
+		}else{
+			data = dbm + 'dBm';
+			return data;		
+		}
+	}
+
+	function getWifiSecureIcon(data){
+		var lock = getIcon('lock');
+		var unlock = getIcon('unlock');
+		switch(data) {
+			case 2: //ENC_TYPE_TKIP - WPA / PSK
+				return lock;
+				break;
+			case 4: //ENC_TYPE_CCMP - WPA2 / PSK
+				return lock;
+				break;
+			case 5: //ENC_TYPE_WEP - WEP
+				return lock;
+				break;
+			case 7: //ENC_TYPE_NONE - open network
+				return unlock;
+			break;
+			case 8:	//ENC_TYPE_AUTO - WPA / WPA2 / PSK
+				return lock;
+				break;	
+			default:
+				return lock;
+		} 
+	}
+	
+	function readTemp(){
+		if (updateActivated == 'true'){
+				checkUpdateActivated();
+		}else{
+			loadJSON('data', '', '3000', function (response) {
+				jr = JSON.parse(response);
+				RSSIIcon = getRSSIIcon(jr.system.rssi);
+				byClass("wifi")[0].innerHTML = RSSIIcon;
+				var x = byClass("pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index");
+				var i;
+				for (i = 0; i < x.length; i++) {
+					x[i].getElementsByClassName('1-box channel')[0].style.borderColor = jr.channel[i].color;
+					x[i].getElementsByClassName('chtitle')[0].innerHTML = jr.channel[i].name;
+					if(jr.pitmaster.typ == 'auto' || jr.pitmaster.typ == 'autotune'){
+						if (jr.pitmaster.channel == jr.channel[i].number){
+							var a = getIcon('uniF2C7') + jr.pitmaster.set + '°' + ' / ';
+							var e = ' ' + jr.pitmaster.value + '%';
+							if(jr.pitmaster.value == '0'){
+								x[i].getElementsByClassName('chtitle')[0].innerHTML = a + getIcon('fan') + ' ' + jr.pitmaster.value + '%';
+							}else if (jr.pitmaster.value <= '25'){
+								x[i].getElementsByClassName('chtitle')[0].innerHTML = a + getIcon('fan icon-rotate-25') + e;
+							}else if (jr.pitmaster.value <= '50'){
+								x[i].getElementsByClassName('chtitle')[0].innerHTML = a + getIcon('fan icon-rotate-50') + e;
+							}else if (jr.pitmaster.value <= '75'){
+								x[i].getElementsByClassName('chtitle')[0].innerHTML = a + getIcon('fan icon-rotate-75') + e;
+							}else if (jr.pitmaster.value <= '100'){
+								x[i].getElementsByClassName('chtitle')[0].innerHTML = a + getIcon('fan icon-rotate-100') + e;
+							}
+						}else{
+							x[i].getElementsByClassName('chtitle')[0].innerHTML = jr.channel[i].name;
+						}
+					}else{
+						x[i].getElementsByClassName('chtitle')[0].innerHTML = jr.channel[i].name;
+					}
+					x[i].getElementsByClassName('chnumber')[0].innerHTML = "#" + jr.channel[i].number;
+					x[i].getElementsByClassName('tempmin')[0].innerHTML = getIcon('temp_down') + jr.channel[i].min + "°";
+					x[i].getElementsByClassName('tempmax')[0].innerHTML = getIcon('temp_up') + jr.channel[i].max + "°";
+					if (jr.channel[i].temp == '999'){
+						x[i].getElementsByClassName('temp')[0].innerHTML = 'OFF';
+						x[i].getElementsByClassName('temp')[0].style.color = "#FFFFFF";		
+						x[i].getElementsByClassName('temp')[0].style.fontWeight = 'normal';
+					}else{
+						x[i].getElementsByClassName('temp')[0].innerHTML = jr.channel[i].temp.toFixed(1) + "°" + jr.system.unit;
+						if (jr.channel[i].temp < jr.channel[i].min){
+							x[i].getElementsByClassName('temp')[0].style.color = "#1874cd";
+							x[i].getElementsByClassName('temp')[0].style.fontWeight = 'bold';
+						}else if (jr.channel[i].temp > jr.channel[i].max){
+							x[i].getElementsByClassName('temp')[0].style.color = "red";
+							x[i].getElementsByClassName('temp')[0].style.fontWeight = 'bold';
+						}else{
+							x[i].getElementsByClassName('temp')[0].style.color = "#FFFFFF";
+							x[i].getElementsByClassName('temp')[0].style.fontWeight = 'normal';
+						}
+					}
+				}
+			})
+		}
+	}
+	
+	function networkscan(){
+		loadJSON('networkscan', '', '3000', function (response) {
+			byId('networkrefresh').innerHTML = '<h3><span class="icon-refresh icon-rotate-50" onclick="networkscan();"></span></h3>'
+			//getIcon('refresh icon-rotate-50')
+			if (response == "OK"){
+				setTimeout("networklist();", 3000);
+			}
+		})
+	}
+	
+	function networklist(){
+		loadJSON('networklist', '', '3000', function (response) {
+			jr = JSON.parse(response);
+			byId('networklist').innerHTML = '';
+			byId('networkconnect').innerHTML = '';
+			var table_networklist = byId('networklist');
+			var table_networkconnect = byId('networkconnect');
+			if (jr.Connect){			
+				byId('hr_wifi').style.display = "";
+				var row = table_networkconnect.insertRow(0);
+				addCell(row,getIcon('ok'),'row-Check','0');
+				addCell(row,jr.SSID,'row-SSID','1');
+				addCell(row,getRSSIIcon(jr.RSSI),'row-RSSI','2');
+				addCell(row,getWifiSecureIcon(jr.Enc),'row-Enc','3');
+				addCell(row,'','row-link','4');
+			}else{
+				byId('hr_wifi').style.display = "none";
+			}
+			NetworkconnectRowClick();
+			for (var i = 0; i < jr.Scan.length; i++) {
+				var row = table_networklist.insertRow(-1);
+				addCell(row,'','row-Check','0');
+				addCell(row,jr.Scan[i].SSID,'row-SSID','1');
+				addCell(row,getRSSIIcon(jr.Scan[i].RSSI),'row-RSSI','2');
+				addCell(row,getWifiSecureIcon(jr.Scan[i].Enc),'row-Enc','3');
+				addCell(row,getIcon('circle-right'),'row-link','4');
+			}
+			byId('networkrefresh').innerHTML = '<h3><span class="icon-refresh" onclick="networkscan();"></span></h3>'
+			NetworklistRowClick();
+		})
+	}
+	function addCell(row,cellinnerHtml,cellClass,nr){
+		var cell = row.insertCell(nr);
+		cell.innerHTML = cellinnerHtml;
+		cell.className = cellClass;
+	}
+	
+	var ssidInput;
+	function NetworklistRowClick() {
+		var table = document.getElementById("networklist");
+		var rows = table.rows; // or table.getElementsByTagName("tr");
+		for (var i = 0; i < rows.length; i++) {
+			rows[i].onclick = (function() { // closure
+				var cnt = i; // save the counter to use in the function
+				return function() {
+					document.getElementsByName('ssidInput')[0].value = this.cells[1].innerHTML;
+					document.getElementsByName('ssidPasswordInput')[0].value = null;
+					ssidInput = this.cells[1].innerHTML;
+					showSetWLAN();
+				}    
+			})(i);
+		}
+	}
+	 
+	function setssidInput(){
+		document.getElementsByName('ssidInput')[0].value = ssidInput;
+	}
+	
+	function NetworkconnectRowClick() {
+		var table = byId('networkconnect');
+		var rows = table.rows; // or table.getElementsByTagName("tr");
+		for (var i = 0; i < rows.length; i++) {
+			rows[i].onclick = (function() { // closure
+				var cnt = i; // save the counter to use in the function
+				return function() {
+				}    
+			})(i);
+		}
+	}
+	
+	function validateNumber(number,decimal) {
+		val = number.value.replace(/[^0-9.,]/g,'').replace(/[,]/g, '.');
+		switch(decimal) {
+			case '1': 
+				if(val){val = val.toString().match(/^-?\d+(?:\.\d{0,1})?/)[0];}
+				break;
+			case '2': 
+				if(val){val = val.toString().match(/^-?\d+(?:\.\d{0,2})?/)[0];}
+				break;
+			case '3':
+				if(val){val = val.toString().match(/^-?\d+(?:\.\d{0,3})?/)[0];}
+				break;
+			case '4':
+				if(val){val = val.toString().match(/^-?\d+(?:\.\d{0,4})?/)[0];}
+				break;
+			default:
+				if(val){val = val.toString().match(/^-?\d+(?:\.\d{0,1})?/)[0];}
+		} 
+		if(val.split('.').length>2){val = val.replace(/\.+$/,"");}		
+		number.value = val;
+	}
+	
+	function showExtendedSettings(){
+		hideAll();
+		byId('extended_settings').style.display = "inline";
+	}
+	
+	var clickTimer = null;
+	function touchStart() {
+		if (clickTimer == null) {
+			clickTimer = setTimeout(function () {
+				clickTimer = null;
+				//alert("single");
+			}, 500)
+		} else {
+			clearTimeout(clickTimer);
+			clickTimer = null;
+			showExtendedSettings();
+		}
+	}	
+
+	function restart(){
+		txt = 'Nano neu starten?';
+		if (confirm(txt) == true) {
+			loadJSON('restart', '', '60000', function (response) {});
+        }
+	}
+
+	function sethwversion(){
+		txt = 'Wollen Sie die HW-Version auf v2 setzen?';
+		if (confirm(txt) == true) {
+			loadJSON('v2', '', '60000', function (response) {});
+        }
+	}
+	
+	function timeConverter(UNIX_timestamp){
+	  var a = new Date(UNIX_timestamp * 1000);
+	  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+	  var year = a.getFullYear();
+	  var month = months[a.getMonth()];
+	  var date = a.getDate();
+	  var hour = a.getHours();
+	  hour = ("0" + hour).slice(-2);
+	  var min = a.getMinutes();
+	  min = ("0" + min).slice(-2);
+	  var sec = a.getSeconds();
+	  sec = ("0" + sec).slice(-2);
+	  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+	  //var unix = Math.round(+new Date()/1000);
+	  //alert(unix + ' ' + UNIX_timestamp);
+	  return time;
+	}
+	readTemp();
+</script>
+
+</body>
 </html>

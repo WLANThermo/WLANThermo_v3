@@ -1,0 +1,100 @@
+{
+
+    "system": {
+        "time": "1505157965",
+        "soc": 22,
+        "charge": true,
+        "rssi": -68,
+        "unit": "C"
+    },
+    "channel": [
+        {
+            "number": 1,
+            "name": "Kanal 1",
+            "typ": 0,
+            "temp": 999.00,
+            "min": 100.00,
+            "max": 130.00,
+            "alarm": true,
+            "color": "#0C4C88"
+        },
+        {
+            "number": 2,
+            "name": "Kanal 2",
+            "typ": 0,
+            "temp": 999.00,
+            "min": 5.00,
+            "max": 89.00,
+            "alarm": false,
+            "color": "#22B14C"
+        },
+        {
+            "number": 3,
+            "name": "Kanal 3",
+            "typ": 0,
+            "temp": 999.00,
+            "min": 5.00,
+            "max": 89.00,
+            "alarm": false,
+            "color": "#EF562D"
+        },
+        {
+            "number": 4,
+            "name": "Kanal 4",
+            "typ": 0,
+            "temp": 999.00,
+            "min": 5.00,
+            "max": 89.00,
+            "alarm": false,
+            "color": "#FFC100"
+        },
+        {
+            "number": 5,
+            "name": "PP 4",
+            "typ": 0,
+            "temp": 999.00,
+            "min": 5.00,
+            "max": 89.00,
+            "alarm": false,
+            "color": "#A349A4"
+        },
+        {
+            "number": 6,
+            "name": "PP 5",
+            "typ": 0,
+            "temp": 999.00,
+            "min": 5.00,
+            "max": 89.00,
+            "alarm": false,
+            "color": "#804000"
+        },
+        {
+            "number": 7,
+            "name": "Kanal 7",
+            "typ": 0,
+            "temp": 999.00,
+            "min": 10.00,
+            "max": 35.00,
+            "alarm": false,
+            "color": "#5587A2"
+        },
+        {
+            "number": 8,
+            "name": "Kanal 8",
+            "typ": 0,
+            "temp": 999.00,
+            "min": 10.00,
+            "max": 35.00,
+            "alarm": false,
+            "color": "#5C7148"
+        }
+    ],
+    "pitmaster": {
+        "channel": 1,
+        "pid": 0,
+        "value": 0,
+        "set": 25.00,
+        "typ": "off"
+    }
+
+}

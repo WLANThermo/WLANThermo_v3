@@ -1,0 +1,105 @@
+{
+
+    "system": {
+        "time": "1505158087",
+        "ap": "NANO-AP",
+        "host": "NANO-82e49e",
+        "language": "de",
+        "unit": "C",
+        "hwalarm": false,
+        "fastmode": true,
+        "version": "v0.8.1",
+        "getupdate": "v0.8.3",
+        "autoupd": true,
+        "hwversion": "V1"
+    },
+    "sensors": [
+        "Maverick",
+        "Fantast-Neu",
+        "Fantast",
+        "iGrill2",
+        "ET-73",
+        "Perfektion",
+        "5K3A1B",
+        "MOUSER47K",
+        "100K6A1B",
+        "Weber_6743",
+        "Santos"
+    ],
+    "pid": [
+        {
+            "name": "SSR SousVide",
+            "id": 0,
+            "aktor": 0,
+            "Kp": 165.00,
+            "Ki": 0.59,
+            "Kd": 1000.00,
+            "Kp_a": 100.00,
+            "Ki_a": 0.08,
+            "Kd_a": 5.00,
+            "DCmmin": 0,
+            "DCmmax": 100
+        },
+        {
+            "name": "TITAN 50x50",
+            "id": 1,
+            "aktor": 1,
+            "Kp": 3.80,
+            "Ki": 0.01,
+            "Kd": 128.00,
+            "Kp_a": 6.20,
+            "Ki_a": 0.00,
+            "Kd_a": 5.00,
+            "DCmmin": 25,
+            "DCmmax": 100
+        },
+        {
+            "name": "Kamado 50x50",
+            "id": 2,
+            "aktor": 1,
+            "Kp": 7.00,
+            "Ki": 0.02,
+            "Kd": 630.00,
+            "Kp_a": 6.20,
+            "Ki_a": 0.00,
+            "Kd_a": 5.00,
+            "DCmmin": 25,
+            "DCmmax": 100
+        }
+    ],
+    "aktor": [
+        "SSR",
+        "FAN",
+        "SERVO"
+    ],
+    "iot": {
+        "TSwrite": "",
+        "TShttp": "",
+        "TSuser": "",
+        "TSchID": "",
+        "TSshow8": false,
+        "TSint": 30,
+        "TSon": true,
+        "PMQhost": "192.168.2.1",
+        "PMQport": 1883,
+        "PMQuser": "",
+        "PMQpass": "",
+        "PMQqos": 0,
+        "PMQon": false,
+        "PMQint": 30,
+        "TGon": 0,
+        "TGtoken": "",
+        "TGid": "",
+        "CLon": true,
+        "CLtoken": "82e49e59a9609383",
+        "CLint": 15
+    },
+    "hardware": [
+        "V1"
+    ],
+    "notification": [
+        "telegram",
+        "pushover"
+    ]
+
+}
