@@ -92,7 +92,3 @@
             showLoader('false');
         })
     }
-
-                // byId('channel_settings_save').setAttribute('onclick','setChannel(' + channel + ');');
-                // byId('sensor').value = jr.channel[channel].typ;
-                // byId('webalarm').checked = jr.channel[channel].alarm;

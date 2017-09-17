@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 	<title>WLANThermo</title>
 	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="channels.js"></script>
 </head>
 <body>
 
@@ -29,63 +30,7 @@
     <div id="menu">
         <div class="pure-menu custom-restricted-width">
 			<a class="pure-menu-heading" href="javascript:showIndex()">
-				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAAA+CAMAAADOHANyAAABy1BMVEVHcEz////LtrjCo6T+/v67
-						srLmGSX18/Pk5OT////////////19fX9/f3+/v76+vrs7Oz7+/vkMDr+/v77+/vkCxj///+8vLzc
-						3Nz8/Pzx8fH8/Pz9/f3v7+/+/v77+/vp6en6+vrk5OTt7e3////7+/vx8fH39/f7+/v8/Pzv7+/0
-						9PTkDxzb29vz8fH7+/v+/v74+Pjy8vL7+/v6+vr9/f3a2tr////+/v76+fn8/Pz5+fnkCRb4+Pj8
-						/Pz19fX8/Pz9/f3kCxjlEh75+fnu7u7kChb7+/vkDRr5+fn09PT8/Pz29vba2tr6+vr8/Pzs7Oz8
-						/Pz39/f9/f37+/vkDBnkCRblER3v7+/v7+/+/v7kBxT6+vrpOELz8/P8/PzlDxz6+vroLDfq6ur5
-						+fn39/f29vb8/Pz////kEyDrRlDnIy/lDRr////////kDBj////kBxToMz3z8/PlEyDlGCPkChf3
-						9/f////lEh/lFSH4+PjlFSHnIS3kDRrkCxjkChflEBz////lDhrkDBjlHyvkCxj39/flFyPu7u7m
-						GyfkDRnlEyDlFSH////oc3r////pXGTnKTTywcTzxMfrT1jsgIb////kBhPe/hkIAAAAl3RSTlMA
-						zQMC/QE8SBT+fPpg5PhSDB/L3XPKkBsH3i6W7WqBohqTKDIUvhxkr8kOTXQJN7P0cDSqiPEEjraP
-						23nsa+OqzOnglJ0k8qWofUS7UAuFxBHPV9a4tfhbKidL/vkLO9R+ixYXgklB2Z6EBxyuSFXGKfsR
-						PW5C2j50Y0xbVyac1OaMXKK7NszGRzwsv1NQyl7LiDN1jxiQLUfRqQAACeRJREFUeF7tmGlXG0cW
-						hu9IaiMs1IiEZATSBBQCSGBAGKQZNgWZfbMABIYQA9gYAraTeMGOl3gZL4m3yWS2l587fau6qlsg
-						nUM44VueD5xbatT16tbduunUub1/7sm7e/2rBweroxe+G994f51KUh25qUyjaZoUVyOREBF9FjlP
-						RzD6PORiIEwuvJHIVVIYr3Zf3zo4zIUXjy9TUbqR1/bWuqHMZvSSxceopCNsF374jzGDHNLl+Jwk
-						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" 
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAAA+CAMAAADOHANyAAACLlBMVEVHcEz/////////////////////////////////////////////////////////////////////////////+fn////////////////////////////////////////////////////////////////////+8fH//////////v7////////////////////87e7//////////////////////////////////////////////////////////////////////////v7////////////////////////////////nJzH////////////8/PzkCBT++/v////////////////////////nIi3////////////////yj5T////73+H+9fbnICr+///tZW3////zrrL////qQEntXmf////////////rTFXpMz7lDhroOELpPknvyMzoLjnmGSXykpfqTFLkCxbpWl7nLTTylJnqQUvpPUf+/v7yiZDwdHvlFiHnLznpND/qRU7nMTflEBzuZWzsW2P////tYWnuYWr29vboMzrnIy7iBQjtfYPx5+jnIivmFSHwfYPiAALkEhvuYWnwe4DmGyfoLTXucnrsWF/Ix8fMpqfnJzLhAQnv7+/yn6P3tLnsf4X86+zvc3z1qazubXPz1tf5xMjup6vkDBnpVlXoS07iERP////hAADgAADjAAXkAAzjAAjjAAHfAADkBhTkAxDkBRP8//+9nKEoAAAArnRSTlMAMZRXD2ceLYC99dFCNP1aQBQ9OAoc1MjOq2vhJC+o+ef3DFTMUgJwTwZ6fqDpIAEivxp3RDvXweMW3pKeR4PyJusR3LfEnJmXKnTNkI27KfMTSa5MGNmxw9ukXO4sYQcE07MYSjqImFVei/N1rfCpfyC15BCq+6FyYmugZR076FaaisPhfmhGRDFAzNv3XJm560rX17Ju3SmVjEYbpch5amh98GZXdZ6CiqfR5rxbcfzCAAALIUlEQVR4Xs2Z91dT2RbHdxAShBApklAihKJUQcBQAtKkI0KQJoKAIpaxYO3l6czT5/Te3vR5vXxvKuB/9+49JfdmQmbEWaz1Pr9AWBfvh3323mefI207C3+6ePbS8PXLY2Njj5c+fLJ67iHF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" 
 				alt="WLANThermo" height="58" width="130"> 
 			</a>
             <ul class="pure-menu-list">
@@ -106,105 +51,23 @@
             <h1>WLANThermo - Nano</h1>
         </div>
 		<!-- ################################################### -->
+        <div class="channel_template" style="display:none">
+			<div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4">
+				<div class="1-box channel">
+					<div class="chtitle">N.C.</div>
+					<div class="chnumber">N.C.</div>
+					<div class="tempadjust">
+						<div class="tempmax">N.C.</div>
+						<div class="tempmin">N.C.</div>
+					</div>
+					<div class="temp">N.C.</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+		<!-- ################################################### -->
         <div id="index" class="content" class="hidden" style="display:none">
-            <div class="pure-g">
-                <div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index" onclick="showSetChannel('0')">
-					<div class="1-box channel">
-						<div class="chtitle"></div>
-						<div class="chnumber"></div>
-							<div class="tempadjust">
-								<div class="tempmax"></div>
-								<div class="tempmin"></div>
-							</div>
-							<div class="temp"></div>
-							<div class="clear"></div>
-					</div>
-                </div>
-                <div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index" onclick="showSetChannel('1')">
-					<div class="1-box channel">
-						<div class="chtitle"></div>
-						<div class="chnumber"></div>
-							<div class="tempadjust">
-								<div class="tempmax"></div>
-								<div class="tempmin"></div>
-							</div>
-							<div class="temp"></div>
-							<div class="clear"></div>
-					</div>
-                </div>
-                <div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index" onclick="showSetChannel('2')">
-					<div class="1-box channel">
-						<div class="chtitle"></div>
-						<div class="chnumber"></div>
-							<div class="tempadjust">
-								<div class="tempmax"></div>
-								<div class="tempmin"></div>
-							</div>
-							<div class="temp"></div>
-							<div class="clear"></div>
-					</div>
-                </div>
-                <div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index" onclick="showSetChannel('3')">
-					<div class="1-box channel">
-						<div class="chtitle"></div>
-						<div class="chnumber"></div>
-							<div class="tempadjust">
-								<div class="tempmax"></div>
-								<div class="tempmin"></div>
-							</div>
-							<div class="temp"></div>
-							<div class="clear"></div>
-					</div>
-                </div>
-                <div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index" onclick="showSetChannel('4')">
-					<div class="1-box channel">
-						<div class="chtitle"></div>
-						<div class="chnumber"></div>
-							<div class="tempadjust">
-								<div class="tempmax"></div>
-								<div class="tempmin"></div>
-							</div>
-							<div class="temp"></div>
-							<div class="clear"></div>
-					</div>
-                </div>
-                <div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index" onclick="showSetChannel('5')">
-					<div class="1-box channel">
-						<div class="chtitle"></div>
-						<div class="chnumber"></div>
-							<div class="tempadjust">
-								<div class="tempmax"></div>
-								<div class="tempmin"></div>
-							</div>
-							<div class="temp"></div>
-							<div class="clear"></div>
-					</div>
-                </div>
-                <div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index" onclick="showSetChannel('6')">
-					<div class="1-box channel">
-						<div class="chtitle"></div>
-						<div class="chnumber"></div>
-							<div class="tempadjust">
-								<div class="tempmax"></div>
-								<div class="tempmin"></div>
-							</div>
-							<div class="temp"></div>
-							<div class="clear"></div>
-					</div>
-                </div>
-                <div class="pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index" onclick="showSetChannel('7')">
-					<div class="1-box channel">
-						<div class="chtitle"></div>
-						<div class="chnumber"></div>
-							<div class="tempadjust">
-								<div class="tempmax"></div>
-								<div class="tempmin"></div>
-							</div>
-							<div class="temp"></div>
-							<div class="clear"></div>
-					</div>
-                </div>
-            </div>
+            <div class="pure-g channel_index"><!-- Dynamically channel insert --></div>
         </div>
 		<!-- ################################################### -->
 		<div id="wlan_config" class="content" style="display:none">
@@ -468,7 +331,8 @@
 							  </select>
 							  <label class="control-label" for="select">Farbe</label><i class="bar"></i>
 							</div>	
-							<div class="checkbox"><label><input id="webalarm" type="checkbox" checked="checked"/><i class="helper"></i>Temperatur Alarm</label></div>
+							<div class="checkbox"><label><input id="temp_alarm_low" type="checkbox" checked="checked"/><i class="helper"></i>Temperatur Alarm Low</label></div>
+							<div class="checkbox"><label><input id="temp_alarm_high" type="checkbox" checked="checked"/><i class="helper"></i>Temperatur Alarm High</label></div>
 						</form>
 					</div>
 				</div>
@@ -800,7 +664,6 @@
 
 	document.addEventListener("DOMContentLoaded", function(event) { 
 		setThermoName();
-		setInterval("readTemp();", 2000);
 	});
 	
 	byId('index').style.display = "inline";
@@ -880,6 +743,7 @@
 			showLoader('false');	
 		})
 	}
+	
 	function setThingspeak(){
 		showLoader('true');
 		loadJSON('settings', '', '3000', function (response){
@@ -949,30 +813,7 @@
 		byId('wlan_set').style.display = "inline";
 	}	
 
-	function showSetChannel(channel){
-        hideAll();
-        showLoader('true');
-        loadJSON('settings', '', '3000', function (response) {
-            jr = JSON.parse(response);
-            clearOption('sensor');
-            for (var i = 0; i < jr.sensors.length; i++) {
-                byId('sensor').options[byId('sensor').options.length] = new Option(jr.sensors[i], i);
-            }
-            loadJSON('data', '', '3000', function (response) {
-                jr = JSON.parse(response);
-                byId('channel_settings_save').setAttribute('onclick','setChannel(' + channel + ');');
-                byId('channel_settings_headtitle').innerHTML  = jr.channel[channel].name;
-                byId('channel_name').value  = jr.channel[channel].name;
-                byId('temp_max').value  = jr.channel[channel].max;
-                byId('temp_min').value  = jr.channel[channel].min;
-                byId('color').value = jr.channel[channel].color;
-                byId('sensor').value = jr.channel[channel].typ;
-                byId('webalarm').checked = jr.channel[channel].alarm;
-                byId('channel_settings').style.display = "inline";
-                showLoader('false');
-            })
-        })
-    }
+
 
 	function setChannel(channel){
 		showLoader('true');
@@ -1377,65 +1218,6 @@
 		} 
 	}
 	
-	function readTemp(){
-		if (updateActivated == 'true'){
-				checkUpdateActivated();
-		}else{
-			loadJSON('data', '', '3000', function (response) {
-				jr = JSON.parse(response);
-				RSSIIcon = getRSSIIcon(jr.system.rssi);
-				byClass("wifi")[0].innerHTML = RSSIIcon;
-				var x = byClass("pure-u-1-1 pure-u-md-1-2 pure-u-xl-1-4 temp_index");
-				var i;
-				for (i = 0; i < x.length; i++) {
-					x[i].getElementsByClassName('1-box channel')[0].style.borderColor = jr.channel[i].color;
-					x[i].getElementsByClassName('chtitle')[0].innerHTML = jr.channel[i].name;
-					if(jr.pitmaster.typ == 'auto' || jr.pitmaster.typ == 'autotune'){
-						if (jr.pitmaster.channel == jr.channel[i].number){
-							var a = getIcon('uniF2C7') + jr.pitmaster.set + '°' + ' / ';
-							var e = ' ' + jr.pitmaster.value + '%';
-							if(jr.pitmaster.value == '0'){
-								x[i].getElementsByClassName('chtitle')[0].innerHTML = a + getIcon('fan') + ' ' + jr.pitmaster.value + '%';
-							}else if (jr.pitmaster.value <= '25'){
-								x[i].getElementsByClassName('chtitle')[0].innerHTML = a + getIcon('fan icon-rotate-25') + e;
-							}else if (jr.pitmaster.value <= '50'){
-								x[i].getElementsByClassName('chtitle')[0].innerHTML = a + getIcon('fan icon-rotate-50') + e;
-							}else if (jr.pitmaster.value <= '75'){
-								x[i].getElementsByClassName('chtitle')[0].innerHTML = a + getIcon('fan icon-rotate-75') + e;
-							}else if (jr.pitmaster.value <= '100'){
-								x[i].getElementsByClassName('chtitle')[0].innerHTML = a + getIcon('fan icon-rotate-100') + e;
-							}
-						}else{
-							x[i].getElementsByClassName('chtitle')[0].innerHTML = jr.channel[i].name;
-						}
-					}else{
-						x[i].getElementsByClassName('chtitle')[0].innerHTML = jr.channel[i].name;
-					}
-					x[i].getElementsByClassName('chnumber')[0].innerHTML = "#" + jr.channel[i].number;
-					x[i].getElementsByClassName('tempmin')[0].innerHTML = getIcon('temp_down') + jr.channel[i].min + "°";
-					x[i].getElementsByClassName('tempmax')[0].innerHTML = getIcon('temp_up') + jr.channel[i].max + "°";
-					if (jr.channel[i].temp == '999'){
-						x[i].getElementsByClassName('temp')[0].innerHTML = 'OFF';
-						x[i].getElementsByClassName('temp')[0].style.color = "#FFFFFF";		
-						x[i].getElementsByClassName('temp')[0].style.fontWeight = 'normal';
-					}else{
-						x[i].getElementsByClassName('temp')[0].innerHTML = jr.channel[i].temp.toFixed(1) + "°" + jr.system.unit;
-						if (jr.channel[i].temp < jr.channel[i].min){
-							x[i].getElementsByClassName('temp')[0].style.color = "#1874cd";
-							x[i].getElementsByClassName('temp')[0].style.fontWeight = 'bold';
-						}else if (jr.channel[i].temp > jr.channel[i].max){
-							x[i].getElementsByClassName('temp')[0].style.color = "red";
-							x[i].getElementsByClassName('temp')[0].style.fontWeight = 'bold';
-						}else{
-							x[i].getElementsByClassName('temp')[0].style.color = "#FFFFFF";
-							x[i].getElementsByClassName('temp')[0].style.fontWeight = 'normal';
-						}
-					}
-				}
-			})
-		}
-	}
-	
 	function networkscan(){
 		loadJSON('networkscan', '', '3000', function (response) {
 			byId('networkrefresh').innerHTML = '<h3><span class="icon-refresh icon-rotate-50" onclick="networkscan();"></span></h3>'
@@ -1571,24 +1353,7 @@
         }
 	}
 	
-	function timeConverter(UNIX_timestamp){
-	  var a = new Date(UNIX_timestamp * 1000);
-	  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-	  var year = a.getFullYear();
-	  var month = months[a.getMonth()];
-	  var date = a.getDate();
-	  var hour = a.getHours();
-	  hour = ("0" + hour).slice(-2);
-	  var min = a.getMinutes();
-	  min = ("0" + min).slice(-2);
-	  var sec = a.getSeconds();
-	  sec = ("0" + sec).slice(-2);
-	  var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
-	  //var unix = Math.round(+new Date()/1000);
-	  //alert(unix + ' ' + UNIX_timestamp);
-	  return time;
-	}
-	readTemp();
+
 </script>
 
 </body>
