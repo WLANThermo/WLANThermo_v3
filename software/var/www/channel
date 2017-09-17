@@ -31,7 +31,7 @@
 				"alert_high_enabled": true,
 				"alert_state": 0,
 				"alert_ack": false,
-				"color": "#0C4C88",
+				"color": "#22B14C",
 				"description": "Beschreibung"
 			},
 			"2":{
@@ -47,7 +47,7 @@
 				"alert_high_enabled": true,
 				"alert_state": 1,
 				"alert_ack": false,
-				"color": "#0C4C88",
+				"color": "#EF562D",
 				"description": "Beschreibung"
 			},
 			"3":{
@@ -63,7 +63,7 @@
 				"alert_high_enabled": true,
 				"alert_state": 3,
 				"alert_ack": false,
-				"color": "#0C4C88",
+				"color": "#FFC100",
 				"description": "Beschreibung"
 			},
 			"4":{
@@ -79,7 +79,7 @@
 				"alert_high_enabled": true,
 				"alert_state": 1,
 				"alert_ack": false,
-				"color": "#0C4C88",
+				"color": "#A349A4",
 				"description": "Beschreibung"
 			},
 			"5":{
@@ -95,7 +95,7 @@
 				"alert_high_enabled": true,
 				"alert_state": 1,
 				"alert_ack": false,
-				"color": "#0C4C88",
+				"color": "#804000",
 				"description": "Beschreibung"
 			},
 			"6":{
@@ -111,7 +111,7 @@
 				"alert_high_enabled": true,
 				"alert_state": 1,
 				"alert_ack": false,
-				"color": "#0C4C88",
+				"color": "#5587A2",
 				"description": "Beschreibung"
 			},
 			"7":{
@@ -127,7 +127,7 @@
 				"alert_high_enabled": true,
 				"alert_state": 2,
 				"alert_ack": true,
-				"color": "#0C4C88",
+				"color": "#5C7148",
 				"description": "Beschreibung"
 			}
 		},
