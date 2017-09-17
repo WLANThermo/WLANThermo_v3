@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 	<title>WLANThermo</title>
 	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="channels.js"></script>
 </head>
 <body>
 
@@ -385,7 +386,8 @@
 							  </select>
 							  <label class="control-label" for="select">Farbe</label><i class="bar"></i>
 							</div>	
-							<div class="checkbox"><label><input id="webalarm" type="checkbox" checked="checked"/><i class="helper"></i>Temperatur Alarm</label></div>
+							<div class="checkbox"><label><input id="temp_alarm_low" type="checkbox" checked="checked"/><i class="helper"></i>Temperatur Alarm Low</label></div>
+							<div class="checkbox"><label><input id="temp_alarm_high" type="checkbox" checked="checked"/><i class="helper"></i>Temperatur Alarm High</label></div>
 						</form>
 					</div>
 				</div>
@@ -717,7 +719,6 @@
 
 	document.addEventListener("DOMContentLoaded", function(event) { 
 		setThermoName();
-		setInterval("readTemp();", 2000);
 	});
 	
 	byId('index').style.display = "inline";
@@ -866,30 +867,7 @@
 		byId('wlan_set').style.display = "inline";
 	}	
 
-	function showSetChannel(channel){
-        hideAll();
-        showLoader('true');
-        loadJSON('settings', '', '3000', function (response) {
-            jr = JSON.parse(response);
-            clearOption('sensor');
-            for (var i = 0; i < jr.sensors.length; i++) {
-                byId('sensor').options[byId('sensor').options.length] = new Option(jr.sensors[i], i);
-            }
-            loadJSON('data', '', '3000', function (response) {
-                jr = JSON.parse(response);
-                byId('channel_settings_save').setAttribute('onclick','setChannel(' + channel + ');');
-                byId('channel_settings_headtitle').innerHTML  = jr.channel[channel].name;
-                byId('channel_name').value  = jr.channel[channel].name;
-                byId('temp_max').value  = jr.channel[channel].max;
-                byId('temp_min').value  = jr.channel[channel].min;
-                byId('color').value = jr.channel[channel].color;
-                byId('sensor').value = jr.channel[channel].typ;
-                byId('webalarm').checked = jr.channel[channel].alarm;
-                byId('channel_settings').style.display = "inline";
-                showLoader('false');
-            })
-        })
-    }
+
 
 	function setChannel(channel){
 		showLoader('true');
@@ -1507,70 +1485,7 @@
 	  //alert(unix + ' ' + UNIX_timestamp);
 	  return time;
 	}
-	function addChannel(){
-		$( ".channel_template:first" ).children().clone().appendTo(".channel_index:last");
-		$(".channel_index").children().last().addClass("temp_index");
-	}
-	
-	function removeChannel(){
-		$(".channel_index").children().last().remove();
-	}
-	
-	function readTemp(){
-		if (updateActivated == 'true'){
-				checkUpdateActivated();
-		}else{
-			loadJSON('channel', '', '3000', function (response) {
-				jr = JSON.parse(response);				
-				var channel_length = 0;
-				for(var channels in jr.channels){
-					for(var channel in jr.channels[channels]){
-						channel_length++;
-					}
-				}
-				while ($(".channel_index").children().length < channel_length) {
-					addChannel();
-				}
-				while ($(".channel_index").children().length > channel_length) {
-					removeChannel();
-				}					
-				
-				var channel_index = 0;
-				for(var channels in jr.channels){
-					for(var channel in jr.channels[channels]){
-						byClass("temp_index")[channel_index].getElementsByClassName('1-box channel')[0].style.borderColor = jr.channels[channels][channel].color;
-						byClass("temp_index")[channel_index].getElementsByClassName('chtitle')[0].innerHTML = jr.channels[channels][channel].name;
-						var chnumber = channel_index + 1;
-						byClass("temp_index")[channel_index].getElementsByClassName('chnumber')[0].innerHTML = "#" + chnumber;
-						byClass("temp_index")[channel_index].getElementsByClassName('tempmin')[0].innerHTML = getIcon('temp_down') + jr.channels[channels][channel].alert_low_limit + "°";
-						byClass("temp_index")[channel_index].getElementsByClassName('tempmax')[0].innerHTML = getIcon('temp_up') + jr.channels[channels][channel].alert_high_limit + "°";
-					if (jr.channels[channels][channel].value === null){
-						byClass("temp_index")[channel_index].getElementsByClassName('temp')[0].innerHTML = 'OFF';
-						byClass("temp_index")[channel_index].getElementsByClassName('temp')[0].style.color = "#FFFFFF";		
-						byClass("temp_index")[channel_index].getElementsByClassName('temp')[0].style.fontWeight = 'normal';
-					}else{
-						byClass("temp_index")[channel_index].getElementsByClassName('temp')[0].innerHTML = jr.channels[channels][channel].value.toFixed(1) + "°";
-						if (jr.channels[channels][channel].value < jr.channels[channels][channel].alert_low_limit){
-							byClass("temp_index")[channel_index].getElementsByClassName('temp')[0].style.color = "#1874cd";
-							byClass("temp_index")[channel_index].getElementsByClassName('temp')[0].style.fontWeight = 'bold';
-						}else if (jr.channels[channels][channel].value > jr.channels[channels][channel].alert_high_limit){
-							byClass("temp_index")[channel_index].getElementsByClassName('temp')[0].style.color = "red";
-							byClass("temp_index")[channel_index].getElementsByClassName('temp')[0].style.fontWeight = 'bold';
-						}else{
-							byClass("temp_index")[channel_index].getElementsByClassName('temp')[0].style.color = "#FFFFFF";
-							byClass("temp_index")[channel_index].getElementsByClassName('temp')[0].style.fontWeight = 'normal';
-						}
-					}						
-						channel_index++;
-					}
-				}		
 
-			})
-		}
-	}
-	$(document).ready(function(){
-		readTemp();               
-	});
 </script>
 
 </body>
