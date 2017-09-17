@@ -1,9 +1,8 @@
 
 {
     "channels": {
-        "0": {
-		"0":{
-				"channel": 0,
+        	"0": {
+			"0":{
 				"name": "Kanal 1",
 				"timestamp": 15000000,
 				"sensor_type": "Maverick",
@@ -131,5 +130,40 @@
 				"color": "#0C4C88",
 				"description": "Beschreibung"
 			}
+		}
+		"1":{
+			"0":{
+				"name": "Kanal 1",
+				"timestamp": 15000000,
+				"sensor_type": "Maverick",
+				"value": 999.00,
+				"unit": "temp_celsius",
+				"timestamp": 12345678.54,
+				"alert_low_limit": 100.00,
+				"alert_high_limit": 130.00,
+				"alert_low_enabled": true,
+				"alert_high_enabled": true,
+				"alert_state": 2,
+				"alert_ack": false,
+				"color": "#0C4C88",
+				"description": "Beschreibung"
+			},
+			"1":{
+				"name": "Kanal 2",
+				"timestamp": 15000000,
+				"sensor_type": "Maverick",
+				"value": none,
+				"unit": "temp_celsius",
+				"timestamp": 12345678.54,
+				"alert_low_limit": 100.00,
+				"alert_high_limit": 130.00,
+				"alert_low_enabled": true,
+				"alert_high_enabled": true,
+				"alert_state": 0,
+				"alert_ack": false,
+				"color": "#0C4C88",
+				"description": "Beschreibung"	
+			}
+		}
 	}
 }
