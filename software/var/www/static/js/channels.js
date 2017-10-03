@@ -1,8 +1,8 @@
+	var channels_api = "api/channels/get";
 	$(document).ready(function(){
 		readTemp();
 		setInterval("readTemp();", 2000);	
 	});
-	
 	function addChannel(){
 		$( ".channel_template:first" ).children().clone().appendTo(".channel_index:last");
 		$(".channel_index").children().last().addClass("temp_index");
@@ -19,7 +19,7 @@
 		if (updateActivated == 'true'){
 				checkUpdateActivated();
 		}else{
-			loadJSON('channel', '', '3000', function (response) {
+			loadJSON(channels_api, '', '3000', function (response) {
 				jr = JSON.parse(response);				
 				var channel_length = 0;
 				for(var channels in jr.channels){
@@ -70,7 +70,7 @@
 	function showSetChannel(temp_channel){
         hideAll();
         showLoader('true');
-        loadJSON('channel', '', '3000', function (response) {
+        loadJSON(channels_api, '', '3000', function (response) {
             jr = JSON.parse(response);
             clearOption('sensor');
 			loadJSON('api/colors/get', '', '3000', function (response) {
@@ -95,9 +95,7 @@
 					}
 				}	
 				byId('channel_settings').style.display = "inline";
-				showLoader('false');				
-				
-				
+				showLoader('false');						
 			});	
         })
     }
