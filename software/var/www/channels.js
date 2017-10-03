@@ -73,22 +73,31 @@
         loadJSON('channel', '', '3000', function (response) {
             jr = JSON.parse(response);
             clearOption('sensor');
-			var channel_index = 0;
-			for(var channels in jr.channels){
-				for(var channel in jr.channels[channels]){
-					if(temp_channel.substr(1, temp_channel.length-1) - 1 == channel_index){
-						byId('channel_settings_headtitle').innerHTML  = jr.channels[channels][channel].name;
-						byId('channel_name').value  = jr.channels[channels][channel].name;
-						byId('temp_max').value  = jr.channels[channels][channel].alert_high_limit
-						byId('temp_min').value  = jr.channels[channels][channel].alert_low_limit;
-						byId('color').value = jr.channels[channels][channel].color;
-						byId('temp_alarm_high').checked = jr.channels[channels][channel].alert_high_enabled;
-						byId('temp_alarm_low').checked = jr.channels[channels][channel].alert_low_enabled;
-					}
-					channel_index++;
+			loadJSON('api/colors/get', '', '3000', function (response) {
+				color = JSON.parse(response);
+				clearOption('color');
+				for (var i = 0; i < color.length; i++) {
+					byId('color').options[byId('color').options.length] = new Option(color[i]["0"], color[i]["1"]);
 				}
-			}			
-			byId('channel_settings').style.display = "inline";
-            showLoader('false');
+				var channel_index = 0;
+				for(var channels in jr.channels){
+					for(var channel in jr.channels[channels]){
+						if(temp_channel.substr(1, temp_channel.length-1) - 1 == channel_index){
+							byId('channel_settings_headtitle').innerHTML  = jr.channels[channels][channel].name;
+							byId('channel_name').value  = jr.channels[channels][channel].name;
+							byId('temp_max').value  = jr.channels[channels][channel].alert_high_limit
+							byId('temp_min').value  = jr.channels[channels][channel].alert_low_limit;						
+							byId('color').value = jr.channels[channels][channel].color;
+							byId('temp_alarm_high').checked = jr.channels[channels][channel].alert_high_enabled;
+							byId('temp_alarm_low').checked = jr.channels[channels][channel].alert_low_enabled;
+						}
+						channel_index++;
+					}
+				}	
+				byId('channel_settings').style.display = "inline";
+				showLoader('false');				
+				
+				
+			});	
         })
     }

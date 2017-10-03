@@ -15,7 +15,7 @@
 				"alert_high_enabled": true,
 				"alert_state": 2,
 				"alert_ack": false,
-				"color": "#0C4C88",
+				"color": "#5587A2",
 				"description": "Beschreibung"
 			},
 			"1":{
@@ -31,7 +31,7 @@
 				"alert_high_enabled": false,
 				"alert_state": 0,
 				"alert_ack": false,
-				"color": "#22B14C",
+				"color": "#FFAEC9",
 				"description": "Beschreibung"
 			},
 			"2":{
