@@ -1,8 +1,13 @@
-	var channels_api = "api/channels/get";
+	var channels_api = "api/channels/get"; // API der Kanäle 
+	var colors_api = "api/colors/get"; // API der verfügbaren Farben
+	var refreshInterval = "2000"; // Refresh Intervall in ms der Temp Werte
+	var getTimeout = "3000"; // Timeout der get API's
+	
 	$(document).ready(function(){
 		readTemp();
-		setInterval("readTemp();", 2000);	
+		setInterval("readTemp();", refreshInterval);	
 	});
+
 	function addChannel(){
 		$( ".channel_template:first" ).children().clone().appendTo(".channel_index:last");
 		$(".channel_index").children().last().addClass("temp_index");
@@ -19,7 +24,7 @@
 		if (updateActivated == 'true'){
 				checkUpdateActivated();
 		}else{
-			loadJSON(channels_api, '', '3000', function (response) {
+			loadJSON(channels_api, '', getTimeout, function (response) {
 				jr = JSON.parse(response);				
 				var channel_length = 0;
 				for(var channels in jr.channels){
@@ -70,10 +75,10 @@
 	function showSetChannel(temp_channel){
         hideAll();
         showLoader('true');
-        loadJSON(channels_api, '', '3000', function (response) {
+        loadJSON(channels_api, '', getTimeout, function (response) {
             jr = JSON.parse(response);
             clearOption('sensor');
-			loadJSON('api/colors/get', '', '3000', function (response) {
+			loadJSON(colors_api, '', getTimeout, function (response) {
 				color = JSON.parse(response);
 				clearOption('color');
 				for (var i = 0; i < color.length; i++) {
