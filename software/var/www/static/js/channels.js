@@ -88,8 +88,8 @@
 				for(var channels in jr.channels){				
 					for(var channel in jr.channels[channels]){
 						if(temp_channel.substr(1, temp_channel.length-1) - 1 == channel_index){
-							var modules = channels;
-							var ch = channel;
+							modules = channels;
+							ch = channel;
 							loadJSON("api/modules/get/" + modules +"/sensors", '', getTimeout, function (response) {
 								sensors = JSON.parse(response);
 								clearOption('sensor');
@@ -104,6 +104,8 @@
 								byId('color').value = jr.channels[modules][ch].color;
 								byId('temp_alarm_high').checked = jr.channels[modules][ch].alert_high_enabled;
 								byId('temp_alarm_low').checked = jr.channels[modules][ch].alert_low_enabled;
+								delete modules;
+								delete ch;
 							});
 						}
 						channel_index++;

@@ -135,7 +135,7 @@
 			"0":{
 				"name": "Kanal 1",
 				"timestamp": 15000000,
-				"sensor_type": "Maverick",
+				"sensor_type": "K-Typ",
 				"value": 999.00,
 				"unit": "temp_celsius",
 				"timestamp": 12345678.54,
@@ -151,7 +151,7 @@
 			"1":{
 				"name": "Kanal 2",
 				"timestamp": 15000000,
-				"sensor_type": "Maverick",
+				"sensor_type": "K-Typ",
 				"value": null,
 				"unit": "temp_celsius",
 				"timestamp": 12345678.54,
