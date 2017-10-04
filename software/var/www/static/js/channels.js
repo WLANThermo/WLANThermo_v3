@@ -85,16 +85,26 @@
 					byId('color').options[byId('color').options.length] = new Option(color[i]["0"], color[i]["1"]);
 				}
 				var channel_index = 0;
-				for(var channels in jr.channels){
+				for(var channels in jr.channels){				
 					for(var channel in jr.channels[channels]){
 						if(temp_channel.substr(1, temp_channel.length-1) - 1 == channel_index){
-							byId('channel_settings_headtitle').innerHTML  = jr.channels[channels][channel].name;
-							byId('channel_name').value  = jr.channels[channels][channel].name;
-							byId('temp_max').value  = jr.channels[channels][channel].alert_high_limit
-							byId('temp_min').value  = jr.channels[channels][channel].alert_low_limit;						
-							byId('color').value = jr.channels[channels][channel].color;
-							byId('temp_alarm_high').checked = jr.channels[channels][channel].alert_high_enabled;
-							byId('temp_alarm_low').checked = jr.channels[channels][channel].alert_low_enabled;
+							var modules = channels;
+							var ch = channel;
+							loadJSON("api/modules/get/" + modules +"/sensors", '', getTimeout, function (response) {
+								sensors = JSON.parse(response);
+								clearOption('sensor');
+								for (var i = 0; i < sensors.length; i++) {
+									byId('sensor').options[byId('sensor').options.length] = new Option(sensors[i], sensors[i]);
+								}
+								byId('sensor').value  = jr.channels[modules][ch].sensor_type;
+								byId('channel_settings_headtitle').innerHTML  = jr.channels[modules][ch].name;
+								byId('channel_name').value  = jr.channels[modules][ch].name;
+								byId('temp_max').value  = jr.channels[modules][ch].alert_high_limit
+								byId('temp_min').value  = jr.channels[modules][ch].alert_low_limit;						
+								byId('color').value = jr.channels[modules][ch].color;
+								byId('temp_alarm_high').checked = jr.channels[modules][ch].alert_high_enabled;
+								byId('temp_alarm_low').checked = jr.channels[modules][ch].alert_low_enabled;
+							});
 						}
 						channel_index++;
 					}
@@ -104,3 +114,4 @@
 			});	
         })
     }
+	

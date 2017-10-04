@@ -5,7 +5,7 @@
 			"0":{
 				"name": "Kanal 1",
 				"timestamp": 15000000,
-				"sensor_type": "Maverick",
+				"sensor_type": "Fantast",
 				"value": 999.00,
 				"unit": "temp_celsius",
 				"timestamp": 12345678.54,
