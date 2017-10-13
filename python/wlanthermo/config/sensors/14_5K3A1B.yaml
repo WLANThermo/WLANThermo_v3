@@ -1,0 +1,7 @@
+coeff_a: 0.0033555
+coeff_b: 0.000257
+coeff_c: 2.43e-06
+name: 5K3A1B
+r_nominative: 5.0
+type: ntc_old
+unit: temp_celsius

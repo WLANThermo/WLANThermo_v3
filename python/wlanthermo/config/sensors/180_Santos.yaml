@@ -1,0 +1,7 @@
+coeff_a: 0.0033561093
+coeff_b: 0.00023552814
+coeff_c: 2.1375541e-06
+name: Santos
+r_nominative: 200820.0
+type: ntc_old
+unit: temp_celsius

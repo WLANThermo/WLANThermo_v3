@@ -1,0 +1,7 @@
+coeff_a: 0.003356158
+coeff_b: 0.00022237925
+coeff_c: 2.652016e-06
+name: MAVERICK
+r_nominative: 1004000.0
+type: ntc_old
+unit: temp_celsius

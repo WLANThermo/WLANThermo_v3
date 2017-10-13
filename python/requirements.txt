@@ -1,0 +1,11 @@
+pyyaml
+pymysql
+cerberus
+flask
+celery
+blinker
+sqlalchemy
+flask_sqlalchemy
+flask-security
+webcolors
+requests

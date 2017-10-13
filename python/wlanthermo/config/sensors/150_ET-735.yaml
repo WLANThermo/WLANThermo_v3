@@ -1,0 +1,7 @@
+coeff_a: 0.0033566373
+coeff_b: 0.00019664428
+coeff_c: 9.6248678e-07
+name: ET-735
+r_nominative: 998900.0
+type: ntc_old
+unit: temp_celsius

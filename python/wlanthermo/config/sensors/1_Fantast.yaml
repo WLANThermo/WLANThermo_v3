@@ -1,0 +1,7 @@
+coeff_a: 0.003355834
+coeff_b: 0.00025698192
+coeff_c: 1.6391056e-06
+name: Fantast
+r_nominative: 50.08
+type: ntc_old
+unit: temp_celsius

@@ -1,0 +1,7 @@
+coeff_a: 0.003362
+coeff_b: 0.000251911
+coeff_c: 3.51094e-06
+name: ROSENSTEIN
+r_nominative: 100.0
+type: ntc_old
+unit: temp_celsius

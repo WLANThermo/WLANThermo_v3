@@ -1,0 +1,7 @@
+coeff_a: 0.0033555291
+coeff_b: 0.00025249073
+coeff_c: 2.5667292e-06
+name: Acurite
+r_nominative: 50210.0
+type: ntc_old
+unit: temp_celsius

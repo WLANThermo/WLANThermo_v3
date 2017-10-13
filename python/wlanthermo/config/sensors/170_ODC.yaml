@@ -1,0 +1,7 @@
+coeff_a: 0.0033538614
+coeff_b: 0.00022352517
+coeff_c: 2.4382337e-06
+name: ODC
+r_nominative: 1000000.0
+type: ntc_old
+unit: temp_celsius

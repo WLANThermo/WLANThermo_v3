@@ -1,0 +1,5 @@
+name: PT100
+r_nominative: 100
+r_offset: 0.0
+type: rtd_pt
+unit: temp_celsius

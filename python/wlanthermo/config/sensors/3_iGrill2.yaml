@@ -1,0 +1,7 @@
+coeff_a: 0.0033562424
+coeff_b: 0.00025319218
+coeff_c: 2.7988397e-06
+name: iGrill2
+r_nominative: 99.61
+type: ntc_old
+unit: temp_celsius

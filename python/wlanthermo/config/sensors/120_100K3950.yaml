@@ -1,0 +1,7 @@
+coeff_a: 0.0033527432
+coeff_b: 0.00025977101
+coeff_c: 3.693425e-06
+name: 100K3950
+r_nominative: 100000.0
+type: ntc_old
+unit: temp_celsius

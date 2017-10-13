@@ -1,0 +1,7 @@
+coeff_a: 0.003356199
+coeff_b: 0.00024352911
+coeff_c: 3.4519389e-06
+name: PERFEKTION
+r_nominative: 200.1
+type: ntc_old
+unit: temp_celsius

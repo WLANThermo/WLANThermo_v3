@@ -1,0 +1,7 @@
+coeff_a: 0.00334519
+coeff_b: 0.000243825
+coeff_c: 2.61726e-06
+name: FANTAST_NEU
+r_nominative: 220000.0
+type: ntc_old
+unit: temp_celsius

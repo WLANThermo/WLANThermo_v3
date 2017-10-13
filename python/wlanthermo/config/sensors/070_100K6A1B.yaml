@@ -1,0 +1,7 @@
+coeff_a: 0.00335639
+coeff_b: 0.000241116
+coeff_c: 2.43362e-06
+name: 100K6A1B
+r_nominative: 100000.0
+type: ntc_old
+unit: temp_celsius

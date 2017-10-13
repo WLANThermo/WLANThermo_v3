@@ -1,0 +1,5 @@
+database: 'wlanthermo'
+host: 'localhost'
+password: '2EFatu3Ey2Y1'
+port: 3306
+user: 'wlanthermo'

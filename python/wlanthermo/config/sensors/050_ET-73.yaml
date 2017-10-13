@@ -1,0 +1,7 @@
+coeff_a: 0.00335672
+coeff_b: 0.000291888
+coeff_c: 4.39054e-06
+name: ET-73
+r_nominative: 200000.0
+type: ntc_old
+unit: temp_celsius

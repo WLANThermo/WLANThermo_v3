@@ -1,0 +1,8 @@
+coeff_a: 0
+coeff_b: 100
+coeff_c: 0
+coeff_d: 0
+coeff_e: 0
+name: KTYPE
+type: poly_u
+unit: temp_celsius

@@ -1,0 +1,5 @@
+name: PT1000
+r_nominative: 1000
+r_offset: 0.0
+type: rtd_pt
+unit: temp_celsius

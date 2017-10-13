@@ -1,0 +1,7 @@
+coeff_a: 0.0033561946
+coeff_b: 0.0002550005
+coeff_c: 2.5976258e-06
+name: SmokeMAX
+r_nominative: 99.645
+type: ntc_old
+unit: temp_celsius

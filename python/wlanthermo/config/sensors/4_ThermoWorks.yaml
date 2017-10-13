@@ -1,0 +1,7 @@
+coeff_a: 0.0033556417
+coeff_b: 0.0002519145
+coeff_c: 2.360696e-06
+name: ThermoWorks
+r_nominative: 97.31
+type: ntc_old
+unit: temp_celsius

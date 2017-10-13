@@ -1,0 +1,7 @@
+coeff_a: 0.0033558796
+coeff_b: 0.00027111149
+coeff_c: 3.1838428e-06
+name: Weber_6743
+r_nominative: 102.315
+type: ntc_old
+unit: temp_celsius
